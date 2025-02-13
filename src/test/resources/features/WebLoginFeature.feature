@@ -6,3 +6,5 @@ Feature: validate the user can login with valid credential
     When  user click login button
     And   user enter phone number "mobile.number"
     Then  click continue button
+
+    #add
