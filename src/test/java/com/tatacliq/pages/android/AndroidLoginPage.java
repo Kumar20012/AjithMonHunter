@@ -32,6 +32,10 @@ public class AndroidLoginPage extends AndroidBasePage{
         }
     }
 
+    public boolean verifyValidPhoneNumber(){
+        return continueButton.isEnabled();
+    }
+
     public void userClickContinueButton(){
         continueButton.click();
         allowButton.click();

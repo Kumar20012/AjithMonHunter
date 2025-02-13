@@ -1,10 +1,7 @@
 package com.tatacliq.pages.web;
 
-import com.tatacliq.utils.ConfigurationManager;
-
-public class WebWelcomePage extends WebBasePage {
-
+public class WebWelcomePage {
     public void openApplication() {
-        driver.get(ConfigurationManager.getConfigValues("application.url"));
+        driver.get(ConfigReader.getConfigValue("application.url"));
     }
 }
