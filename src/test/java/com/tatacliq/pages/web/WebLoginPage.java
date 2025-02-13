@@ -22,12 +22,10 @@ public class WebLoginPage extends WebBasePage{
     public void userEnterMobileNumber(String number){
         numberInputBar.click();
         numberInputBar.sendKeys(number);
-    }
-    public void userClickContinueButton() {
         continueBtn.click();
     }
     public void fillOtp(){
-        while (!otpContinueBtn.isDisplayed()) {
+        while (!otpContinueBtn.isEnabled()) {
             System.out.println("waiting for otp");
         }
         otpContinueBtn.click();
@@ -37,5 +35,8 @@ public class WebLoginPage extends WebBasePage{
         return successMsg.isDisplayed();
     }
 
+    public boolean continueButtonNotEnabled(){
+        return continueBtn.isEnabled();
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.tatacliq.steps;
 
 import com.tatacliq.pages.android.AndroidHomePage;
-import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -17,8 +16,8 @@ public class HomePageSteps {
         Assert.assertTrue(androidHomePage.verifyUserOnHomePage());
     }
 
-    @When("user search the product {string}")
-    public void userSearchTheProduct(String product) {
-        androidHomePage.userEnterSearchProduct(ConfigurationManager.getConfigValues(product));
+    @When("user click login button")
+    public void userClickLoginButton() {
+
     }
 }
