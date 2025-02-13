@@ -37,7 +37,6 @@ public class AndroidLoginPage extends AndroidBasePage{
         allowButton.click();
         wait.until(ExpectedConditions.visibilityOf(fingerprintSkip));
         fingerprintSkip.click();
-        //add
     }
 
 
