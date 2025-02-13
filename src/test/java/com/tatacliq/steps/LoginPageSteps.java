@@ -29,4 +29,5 @@ public class LoginPageSteps {
     public void verifyTheNumberIsInvalid() {
         Assert.assertFalse(androidLoginPage.verifyValidPhoneNumber());
     }
+
 }

@@ -1,8 +1,9 @@
 package com.tatacliq.pages.android;
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -28,6 +29,6 @@ public class AndroidHomePage extends AndroidBasePage{
     public void userEnterSearchProduct(String productName){
         searchBar.click();
         searchText.sendKeys(productName);
-        listOfProduct.get(1).click();
+        driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 }

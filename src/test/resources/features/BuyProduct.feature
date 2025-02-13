@@ -8,3 +8,4 @@ Feature: validate user buy a product
     And verify user on home page
     When user search the product "product.name"
     Then verify user on product page
+
