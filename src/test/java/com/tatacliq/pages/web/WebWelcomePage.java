@@ -1,7 +1,7 @@
 package com.tatacliq.pages.web;
 
-public class WebWelcomePage {
+public class WebWelcomePage extends {
     public void openApplication() {
-        driver.get(ConfigReader.getConfigValue("application.url"));
+        driver.get(ConfigurationManager.getConfigValues("application.url"));
     }
 }
