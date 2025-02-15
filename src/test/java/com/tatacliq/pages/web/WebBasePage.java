@@ -27,4 +27,12 @@ public class WebBasePage {
     protected void moveToElement(WebElement ele) {
         actions.moveToElement(ele).build().perform();
     }
+
+    public void pause(int sec){
+        try {
+            Thread.sleep(Duration.ofSeconds(sec).toMillis());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

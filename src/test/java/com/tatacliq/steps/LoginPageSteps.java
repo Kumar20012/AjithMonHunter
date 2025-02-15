@@ -1,6 +1,11 @@
 package com.tatacliq.steps;
 
+import com.tatacliq.pages.android.AndroidHomePage;
 import com.tatacliq.pages.android.AndroidLoginPage;
+import com.tatacliq.pages.ui.HomePage;
+import com.tatacliq.pages.ui.LoginPage;
+import com.tatacliq.pages.web.WebHomePage;
+import com.tatacliq.pages.web.WebLoginPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -9,46 +14,47 @@ import org.junit.Assert;
 
 public class LoginPageSteps {
 
-    AndroidLoginPage androidLoginPage = new AndroidLoginPage();
+    LoginPage loginPage;
+
+    public LoginPageSteps(){
+        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
+            loginPage = new WebLoginPage();
+        }
+        else{
+            loginPage = new AndroidLoginPage();
+        }
+    }
+
 
     @When("user enter phone number {string}")
-    public void user_enter_phone_number(String number) {
-        androidLoginPage.userEnterMobileNumber(ConfigurationManager.getConfigValues(number));
+    public void user_enter_phone_number(String number)  {
+        loginPage.userEnterMobileNumber(ConfigurationManager.getConfigValues(number));
     }
 
     @Then("click continue button")
     public void click_continue_button() {
-     androidLoginPage.userClickContinueButton();
+        loginPage.userClickContinueButton();
     }
 
     @Then("verify the number is valid")
     public void verifyTheNumberIsValid() {
-        Assert.assertTrue(androidLoginPage.verifyValidPhoneNumber());
+        Assert.assertTrue(loginPage.checkContinueButton());
     }
 
     @Then("verify the number is Invalid")
     public void verifyTheNumberIsInvalid() {
-        Assert.assertFalse(androidLoginPage.verifyValidPhoneNumber());
+        Assert.assertFalse(loginPage.checkContinueButton());
     }
 
     @Then("verify user on login page")
     public void verifyUserOnLoginPage() {
+        Assert.assertTrue(loginPage.verifyUserOnLoginPage());
     }
 
-    @And("fill the otp and click submit")
-    public void fillTheOtpAndClickSubmit() {
-
-    }
-    @Then("verify success message displayed")
-    public void verifySuccessMessageDisplayed() {
-    }
 
     @When("user fill invalid numbers {string}")
-    public void userFillInvalidNumbers(String arg0) {
-        
+    public void userFillInvalidNumbers(String number) {
+        loginPage.userEnterMobileNumber(number);
     }
 
-    @Then("verify user can not login successfully")
-    public void verifyUserCanNotLoginSuccessfully() {
-    }
 }

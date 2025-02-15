@@ -1,20 +1,20 @@
 Feature: Validate the login functionality
 
   Background:
-    Given user open application
+    Given user open application "MEN"
     Then  verify user on home page
     When  user click login button
     Then  verify user on login page
 
   Scenario: Verify user can login successfully
-
     When  user enter phone number "mobile.number"
-    And   fill the otp and click submit
-    Then  verify success message displayed
+    Then verify the number is valid
+    And click continue button
+    Then verify user on home page
 
   Scenario Outline: Verify user can not login with invalid number
     When user fill invalid numbers "<invalid.number>"
-    Then verify user can not login successfully
+    Then verify the number is Invalid
 
       Examples:
       |invalid.number|

@@ -1,9 +1,13 @@
 package com.tatacliq.pages.web;
 
+import com.tatacliq.pages.ui.LoginPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class WebLoginPage extends WebBasePage{
+import java.time.Duration;
+
+public class WebLoginPage extends WebBasePage implements LoginPage {
     @FindBy(id="mobileNumber")
     WebElement numberInputBar;
 
@@ -13,30 +17,27 @@ public class WebLoginPage extends WebBasePage{
     @FindBy(xpath = "//button[@class='mobile-number-login__btnPrimary']")
     WebElement otpContinueBtn;
 
-    @FindBy(xpath = "//div[@class='mobile-number-login__lognSucess_TxtSec']")
-    WebElement successMsg;
 
     public boolean verifyUserOnLoginPage(){
         return numberInputBar.isDisplayed();
     }
-    public void userEnterMobileNumber(String number){
+    public void userEnterMobileNumber(String number) {
         numberInputBar.click();
         numberInputBar.sendKeys(number);
-        continueBtn.click();
     }
-    public void fillOtp(){
+
+    public boolean checkContinueButton(){
+        return continueBtn.isEnabled();
+    }
+
+
+    public void userClickContinueButton() {
+        continueBtn.click();
+        pause(15);
         while (!otpContinueBtn.isEnabled()) {
             System.out.println("waiting for otp");
         }
         otpContinueBtn.click();
-    }
-
-    public boolean isSuccessMessageDisplayed(){
-        return successMsg.isDisplayed();
-    }
-
-    public boolean continueButtonNotEnabled(){
-        return continueBtn.isEnabled();
     }
 
 }

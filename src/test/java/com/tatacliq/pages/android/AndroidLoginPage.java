@@ -1,12 +1,13 @@
 package com.tatacliq.pages.android;
 
+import com.tatacliq.pages.ui.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class AndroidLoginPage extends AndroidBasePage{
+public class AndroidLoginPage extends AndroidBasePage implements LoginPage {
 
     @FindBy(id = "com.tul.tatacliq:id/editTextMobileNumber")
     WebElement numberBar;
@@ -25,6 +26,7 @@ public class AndroidLoginPage extends AndroidBasePage{
         return numberBar.isDisplayed();
     }
 
+
     public void userEnterMobileNumber(String number){
         numberBar.click();
         if(!continueButton.isEnabled()){
@@ -32,7 +34,7 @@ public class AndroidLoginPage extends AndroidBasePage{
         }
     }
 
-    public boolean verifyValidPhoneNumber(){
+    public boolean checkContinueButton(){
         return continueButton.isEnabled();
     }
 

@@ -1,9 +1,11 @@
 package com.tatacliq.pages.web;
 
+import com.tatacliq.pages.ui.HomePage;
+import com.tatacliq.utils.ConfigurationManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class WebHomePage extends WebBasePage{
+public class WebHomePage extends WebBasePage implements HomePage {
 
     @FindBy(id="search-text-input")
     WebElement searchBar;
@@ -17,15 +19,24 @@ public class WebHomePage extends WebBasePage{
     @FindBy(id = "wzrk-cancel")
     WebElement askLater;
 
+    public void userOpenApplication(String val) {
+        driver.get(ConfigurationManager.getConfigValues("application.url"));
+        askLater.click();
+    }
+
     public boolean verifyUserOnHomePage(){
-        return  searchBar.isDisplayed();
+        return searchBar.isDisplayed();
     }
 
     public void clickOnLoginButton(){
-        moveToElement(signUpBtn);
-        loginBtn.click();
+        signUpBtn.click();
+        //loginBtn.click();
     }
 
+
+    public void userEnterSearchProduct(String productName){
+
+    }
 
 
 }

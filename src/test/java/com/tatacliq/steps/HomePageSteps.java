@@ -1,23 +1,47 @@
 package com.tatacliq.steps;
 
 import com.tatacliq.pages.android.AndroidHomePage;
+import com.tatacliq.pages.ui.HomePage;
+import com.tatacliq.pages.web.WebHomePage;
+import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 public class HomePageSteps {
-    AndroidHomePage androidHomePage= new AndroidHomePage();
 
+    HomePage homePage;
+
+    public HomePageSteps(){
+        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
+            homePage = new WebHomePage();
+        }
+        else{
+            homePage = new AndroidHomePage();
+        }
+    }
+
+
+    @Given("user open application {string}")
+    public void userOpenApplication(String category) {
+        homePage.userOpenApplication(ConfigurationManager.getConfigValues(category));
+    }
 
     @And("verify user on home page")
     public void verifyUserOnHomePage() {
-        Assert.assertTrue(androidHomePage.verifyUserOnHomePage());
+        Assert.assertTrue(homePage.verifyUserOnHomePage());
     }
 
     @When("user click login button")
     public void userClickLoginButton() {
+        homePage.clickOnLoginButton();
+    }
+
+    @Given("user open application pass category {string}")
+    public void userOpenApplicationPassCategory(String value) {
 
     }
+
 }
