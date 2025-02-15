@@ -17,7 +17,7 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Login\"]")
     WebElement loginBtn;
 
-    @FindBy(id = "com.tul.tatacliq:id/rl_tv_prominent")
+    @FindBy(id = "com.tul.tatacliq:id/tvProminentSearch")
     WebElement searchBar;
 
     @FindBy(id = "android:id/search_src_text")
@@ -51,4 +51,5 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         searchText.sendKeys(productName);
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
+
 }
