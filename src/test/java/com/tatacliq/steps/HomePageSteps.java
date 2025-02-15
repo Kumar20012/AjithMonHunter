@@ -39,9 +39,10 @@ public class HomePageSteps {
         homePage.clickOnLoginButton();
     }
 
-    @Given("user open application pass category {string}")
-    public void userOpenApplicationPassCategory(String value) {
 
+    @When("user enter search product {string}")
+    public void userEnterSearchProduct(String product) {
+        homePage.userEnterSearchProduct(ConfigurationManager.getConfigValues(product));
     }
 
 }
