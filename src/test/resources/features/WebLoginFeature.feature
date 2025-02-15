@@ -16,8 +16,8 @@ Feature: Validate the login functionality
     When user fill invalid numbers "<invalid.number>"
     Then verify the number is Invalid
 
-      Examples:
-      |invalid.number|
-      |23244         |
-      |1333356       |
-      |45            |
+    Examples:
+      | invalid.number |
+      | 23244          |
+      | 1333356        |
+      | 45             |
