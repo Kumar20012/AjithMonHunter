@@ -49,14 +49,12 @@ public class WebHomePage extends WebBasePage implements HomePage {
     }
 
     public void userClickMyAccountIcon(){
-
+        moveToElement(myProfile);
     }
 
     public void userClickLogoutButton(){
-
+        logoutBtn.click();
     }
-
-
 
 
 }
