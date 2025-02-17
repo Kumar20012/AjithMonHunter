@@ -1,11 +1,7 @@
 package com.tatacliq.steps;
 
 import com.tatacliq.pages.android.AndroidFilterPage;
-import com.tatacliq.pages.android.AndroidHomePage;
 import com.tatacliq.pages.ui.FilterPage;
-import com.tatacliq.pages.ui.HomePage;
-import com.tatacliq.pages.web.WebFilterPage;
-import com.tatacliq.pages.web.WebHomePage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
