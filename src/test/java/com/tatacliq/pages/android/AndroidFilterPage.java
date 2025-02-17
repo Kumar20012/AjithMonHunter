@@ -1,12 +1,14 @@
 package com.tatacliq.pages.android;
 
+import com.tatacliq.pages.ui.FilterPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.FileFilter;
 import java.util.List;
 
-public class AndroidFilterPage extends AndroidBasePage{
+public class AndroidFilterPage extends AndroidBasePage implements FilterPage {
 
     @FindBy(xpath="//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/txtShowResults\"]")
     WebElement showResultButton;

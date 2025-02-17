@@ -2,6 +2,9 @@ package com.tatacliq.pages.web;
 
 import com.tatacliq.pages.ui.HomePage;
 import com.tatacliq.utils.ConfigurationManager;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -35,7 +38,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
 
     public void userEnterSearchProduct(String productName){
-
+        pause(5);
+        searchBar.click();
+        searchBar.sendKeys(productName+Keys.ENTER);
     }
 
 
