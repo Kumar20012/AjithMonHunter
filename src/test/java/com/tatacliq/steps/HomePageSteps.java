@@ -6,6 +6,7 @@ import com.tatacliq.pages.web.WebHomePage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
@@ -43,6 +44,16 @@ public class HomePageSteps {
     @When("user enter search product {string}")
     public void userEnterSearchProduct(String product) {
         homePage.userEnterSearchProduct(ConfigurationManager.getConfigValues(product));
+    }
+
+    @When("user click my account icon")
+    public void userClickMyAccountIcon() {
+        homePage.userClickMyAccountIcon();
+    }
+
+    @Then("user click on logout button")
+    public void userClickOnLogoutButton() {
+        homePage.userClickLogoutButton();
     }
 
 }

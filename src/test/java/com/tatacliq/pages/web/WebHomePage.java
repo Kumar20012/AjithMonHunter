@@ -48,6 +48,15 @@ public class WebHomePage extends WebBasePage implements HomePage {
         searchBar.sendKeys(productName+Keys.ENTER);
     }
 
+    public void userClickMyAccountIcon(){
+
+    }
+
+    public void userClickLogoutButton(){
+
+    }
+
+
 
 
 }
