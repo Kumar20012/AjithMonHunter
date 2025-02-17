@@ -1,6 +1,5 @@
 package com.tatacliq.steps;
 
-import com.tatacliq.pages.android.AndroidFilterPage;
 import com.tatacliq.utils.ConfigurationManager;
 import com.tatacliq.utils.DriverManager;
 import io.cucumber.java.After;

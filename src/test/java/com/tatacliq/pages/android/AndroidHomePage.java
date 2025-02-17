@@ -58,7 +58,7 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     }
 
     public void userEnterSearchProduct(String productName){
-        pause(5);
+        pause(10);
         searchBar.click();
         searchText.sendKeys(productName);
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
