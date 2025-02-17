@@ -33,7 +33,6 @@ public class WebHomePage extends WebBasePage implements HomePage {
 
     public void clickOnLoginButton(){
         signUpBtn.click();
-        //loginBtn.click();
     }
 
 
@@ -42,6 +41,15 @@ public class WebHomePage extends WebBasePage implements HomePage {
         searchBar.click();
         searchBar.sendKeys(productName+Keys.ENTER);
     }
+
+    public void userClickMyAccountIcon(){
+
+    }
+
+    public void userClickLogoutButton(){
+
+    }
+
 
 
 }

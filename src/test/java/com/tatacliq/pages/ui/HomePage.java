@@ -5,4 +5,6 @@ public interface HomePage {
     void clickOnLoginButton();
     void userEnterSearchProduct(String productName);
     void userOpenApplication(String val);
+    void userClickMyAccountIcon();
+    void userClickLogoutButton();
 }
