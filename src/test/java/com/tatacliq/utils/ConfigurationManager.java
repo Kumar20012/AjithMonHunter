@@ -1,5 +1,9 @@
 package com.tatacliq.utils;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -23,5 +27,10 @@ public class ConfigurationManager {
 
     public static void setConfigValue(String key, String value) {
         properties.setProperty(key, value);
+    }
+
+    public static byte[] attachScreenShot(WebDriver driver){
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        return takesScreenshot.getScreenshotAs(OutputType.BYTES);
     }
 }
