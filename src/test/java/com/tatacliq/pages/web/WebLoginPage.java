@@ -33,7 +33,7 @@ public class WebLoginPage extends WebBasePage implements LoginPage {
 
     public void userClickContinueButton() {
         continueBtn.click();
-        pause(15);
+        pause(5);
         while (!otpContinueBtn.isEnabled()) {
             System.out.println("waiting for otp");
         }

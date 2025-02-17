@@ -22,6 +22,12 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(id = "wzrk-cancel")
     WebElement askLater;
 
+    @FindBy(className = "DesktopHeader__iconPersonHolder")
+    WebElement myProfile;
+
+    @FindBy(className = "LogoutButton__menuIconLogOut")
+    WebElement logoutBtn;
+
     public void userOpenApplication(String val) {
         driver.get(ConfigurationManager.getConfigValues("application.url"));
         askLater.click();
@@ -49,6 +55,7 @@ public class WebHomePage extends WebBasePage implements HomePage {
     public void userClickLogoutButton(){
 
     }
+
 
 
 
