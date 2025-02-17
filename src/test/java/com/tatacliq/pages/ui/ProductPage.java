@@ -4,7 +4,9 @@ public interface ProductPage {
 
     boolean verifyUserOnProductPage();
 
-    void userSelectFilterOption();
-
     void displayProductDetails();
+
+    void userSelectBrandName(String brandName);
+    void selectFilterOption(String option);
+
 }
