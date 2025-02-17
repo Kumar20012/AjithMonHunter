@@ -24,6 +24,19 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     List<WebElement> listOfPrice;
 
 
+    @FindBy(id = "Filter-clearAllCTA")
+    WebElement clearFilter;
+
+    String x_path_filter = "//div[text()='%s']//following-sibling::div";
+
+    @FindBy(className = "FilterSelect__data")
+    List<WebElement> listOfBrand;
+
+    @FindBy(xpath = "//input[@placeholder='Search by brands']")
+    WebElement searchBrand;
+
+
+
     public boolean verifyUserOnProductPage(){
         return filterIcon.isDisplayed();
     }
@@ -41,6 +54,22 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         }
         String filePath = "ProductDetails.xlsx";
         ExcelUtils.writeDataToExcel(productData, filePath);
+    }
+
+    public void selectFilterOption(String option) {
+        WebElement ele = driver.findElement(By.xpath(String.format(x_path_filter, option)));
+        ele.click();
+    }
+
+    public void userSelectBrandName(String brandName) {
+        searchBrand.sendKeys(brandName);
+        for (WebElement pro : listOfBrand) {
+            if (pro.getText().equals(brandName)) {
+                pro.click();
+                break;
+            }
+        }
+        pause(5);
     }
 
 }

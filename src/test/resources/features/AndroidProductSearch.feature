@@ -22,7 +22,7 @@ Feature: Validate the product search and select filter
     Then display the product details
 
  @web
-  Scenario: verify all search details
+  Scenario: verify all search details in web
     Given user open application "MEN"
     Then verify user on home page
     When user click login button

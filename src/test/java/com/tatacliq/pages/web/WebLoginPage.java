@@ -1,13 +1,14 @@
 package com.tatacliq.pages.web;
 
 import com.tatacliq.pages.ui.LoginPage;
+import com.tatacliq.pages.ui.ProductPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
-public class WebLoginPage extends WebBasePage implements LoginPage {
+public class WebLoginPage extends WebBasePage implements LoginPage{
     @FindBy(id="mobileNumber")
     WebElement numberInputBar;
 

@@ -7,4 +7,5 @@ public interface ProductPage {
     void userSelectFilterOption();
 
     void displayProductDetails();
+
 }
