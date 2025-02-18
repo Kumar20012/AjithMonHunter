@@ -57,4 +57,21 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
         }
         showResultButton.click();
     }
+    public  void userSelectSortOption(String option){
+
+    }
+    public boolean isProductSortedByPopularity(){return  true;}
+    public  boolean isPriceSortedHighToLow(){
+        return true;
+    }
+    public boolean isPriceSortedLowToHigh(){
+        return true;
+    }
+    public  boolean isProductSortedByNewArrival(){
+        return true;
+    }
+    public boolean isProductSortedByDiscount(){
+        return true;
+    }
+
 }

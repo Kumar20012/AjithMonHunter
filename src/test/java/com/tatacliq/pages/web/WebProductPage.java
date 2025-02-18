@@ -1,10 +1,12 @@
 package com.tatacliq.pages.web;
 
 import com.tatacliq.pages.ui.ProductPage;
+import com.tatacliq.utils.ConfigurationManager;
 import com.tatacliq.utils.ExcelUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +36,17 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     @FindBy(xpath = "//input[@placeholder='Search by brands']")
     WebElement searchBrand;
 
+    @FindBy(className = "SelectBoxDesktop__hideSelect")
+    WebElement sortByBtn;
 
-    public boolean verifyUserOnProductPage(){
+    @FindBy(className = "SelectBoxDesktop__visibleBoxWithLeftChild")
+    WebElement finalSortValue;
+
+    @FindBy(className = "ProductModule__base")
+    List<WebElement> dummyProductList;
+
+
+    public boolean verifyUserOnProductPage() {
         return filterIcon.isDisplayed();
     }
 
@@ -52,7 +63,6 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     }
 
 
-
     public void selectFilterOption(String option) {
         WebElement ele = driver.findElement(By.xpath(String.format(x_path_filter, option)));
         ele.click();
@@ -67,6 +77,55 @@ public class WebProductPage extends WebBasePage implements ProductPage {
             }
         }
         pause(5);
+    }
+
+    public void userSelectSortOption(String option) {
+        Select select = new Select(sortByBtn);
+        select.selectByVisibleText(option);
+        ConfigurationManager.setConfigValue("sorted.option", option);
+    }
+
+    public boolean isProductSortedByPopularity(){
+        return finalSortValue.getText().equals(ConfigurationManager.getConfigValues("sorted.option"));
+    }
+
+    public boolean isPriceSortedHighToLow() {
+        for (int i = 0; i < listOfPrice.size(); i++) {
+            String element = listOfPrice.get(i).getText().replaceAll("[^0-9]", "");
+            String element1 = listOfPrice.get(i + 1).getText().replaceAll("[^0-9]", "");
+            return Integer.parseInt(element) > Integer.parseInt(element1);
+        }
+        return false;
+    }
+
+    public boolean isPriceSortedLowToHigh() {
+        for (int i = 0; i < listOfPrice.size(); i++) {
+            String element = listOfPrice.get(i).getText().replaceAll("[^0-9]", "");
+            String element1 = listOfPrice.get(i + 1).getText().replaceAll("[^0-9]", "");
+            return Integer.parseInt(element) < Integer.parseInt(element1);
+        }
+        return false;
+    }
+    public boolean isProductSortedByNewArrival(){
+        pause(3);
+        for(WebElement ele:dummyProductList){
+            WebElement tag=ele.findElement(By.xpath(".//div[@class='ProductModule__flagHolder']/div"));
+            if(tag.getText().contains("New Arrivals") || tag.getText().contains("New")){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isProductSortedByDiscount(){
+        pause(3);
+        for(WebElement ele:dummyProductList){
+            WebElement tag=ele.findElement(By.xpath(".//span[@class='ProductDescription__newDiscountPercent']"));
+            String value=tag.getText().replaceAll("[^0-9]","");
+            if(Integer.parseInt(value) > 75){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

@@ -8,5 +8,10 @@ public interface ProductPage {
 
     void userSelectBrandName(String brandName);
     void selectFilterOption(String option);
-
+    void userSelectSortOption(String option);
+    boolean isPriceSortedHighToLow();
+    boolean isPriceSortedLowToHigh();
+    boolean isProductSortedByNewArrival();
+    boolean isProductSortedByDiscount();
+    boolean isProductSortedByPopularity();
 }

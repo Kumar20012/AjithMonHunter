@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Set;
 
 public class WebBasePage {
     WebDriver driver;
@@ -24,6 +25,16 @@ public class WebBasePage {
         PageFactory.initElements(driver, this);
     }
 
+    public  void switchToWindow(){
+        String currentWindow = driver.getWindowHandle();
+        Set<String> allWindow = driver.getWindowHandles();
+        for(String window : allWindow){
+            if(!window.equals(currentWindow)){
+                driver.switchTo().window(window);
+            }
+        }
+
+    }
     protected void moveToElement(WebElement ele) {
         actions.moveToElement(ele).build().perform();
     }

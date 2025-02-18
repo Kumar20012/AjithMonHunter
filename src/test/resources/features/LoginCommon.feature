@@ -7,9 +7,9 @@ Feature: Validate the login functionality
     Then  verify user on login page
 
   Scenario: Verify user can login successfully
-    When  user enter phone number "mobile.number"
+    When user enter phone number "mobile.number"
     Then verify the number is valid
-    And click continue button
+    And  click continue button
     Then verify user on home page
 
   Scenario Outline: Verify user can not login with invalid number
@@ -18,6 +18,6 @@ Feature: Validate the login functionality
 
     Examples:
       | invalid.number |
-      | 23244          |
-      | 1333356        |
-      | 45             |
+      | 23244049       |
+      | 133-356        |
+      | 4527@          |
