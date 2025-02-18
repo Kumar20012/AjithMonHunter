@@ -18,12 +18,17 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
     @FindBy(id = "com.tul.tatacliq:id/textViewProductSP")
     List<WebElement> listOfPrice;
 
-
     @FindBy(xpath="//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/txtShowResults\"]")
     WebElement showResultButton;
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/textViewFilterValueName\"]")
     List<WebElement> listOfBrand;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/emptyText\"]")
+    WebElement noProduct;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/textViewProductBrand\"]")
+    List<WebElement> ProductList;
 
     String x_path_filter="//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/txtFilterKey\" and @text='%s']";
 
@@ -56,5 +61,18 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
             }
         }
         showResultButton.click();
+    }
+
+    public void userClickProductContainKeyword(String keyword){
+        while(!isDisplayedCheck(noProduct)){
+            for(WebElement ele :ProductList){
+                if(ele.getText().contains(keyword)){
+                    ele.click();
+                    return;
+                }
+            }
+            scrollPage();
+            ProductList = driver.findElements(By.xpath("//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/textViewProductBrand\"]"));
+        }
     }
 }

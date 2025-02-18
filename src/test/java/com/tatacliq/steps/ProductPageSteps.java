@@ -44,4 +44,8 @@ public class ProductPageSteps {
         productPage.userSelectBrandName(brandName);
     }
 
+    @When("the user clicks on a product that contains the keyword {string}")
+    public void theUserClicksOnAProductThatContainsTheKeyword(String keyword) {
+        productPage.userClickProductContainKeyword(keyword);
+    }
 }

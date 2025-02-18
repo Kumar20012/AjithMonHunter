@@ -6,10 +6,11 @@ import org.junit.runner.RunWith;
 
 //@RunWith(Cucumber.class)
 //@CucumberOptions(
-//        features = "src/test/resources/features",
+//        features = "src/test/resources/features/BuyProduct.feature",
 //        glue = "com.tatacliq.steps",
 //        plugin = {"pretty","html:reports/cucumber.html"},
-//        monochrome = true
+//        monochrome = true,
+//        dryRun = true
 //)
 public class TestRunner {
 }

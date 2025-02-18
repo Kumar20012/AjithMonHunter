@@ -9,4 +9,5 @@ public interface ProductPage {
     void userSelectBrandName(String brandName);
     void selectFilterOption(String option);
 
+    void userClickProductContainKeyword(String keyword);
 }
