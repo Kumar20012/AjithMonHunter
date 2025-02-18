@@ -10,4 +10,10 @@ public interface ProductPage {
     void selectFilterOption(String option);
 
     void userClickProductContainKeyword(String keyword);
+    void userSelectSortOption(String option);
+    boolean isProductSortedByPopularity();
+    boolean isPriceSortedHighToLow();
+    boolean isPriceSortedLowToHigh();
+    boolean isProductSortedByNewArrival();
+    boolean isProductSortedByDiscount();
 }
