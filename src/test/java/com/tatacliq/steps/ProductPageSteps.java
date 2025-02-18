@@ -44,33 +44,8 @@ public class ProductPageSteps {
         productPage.userSelectBrandName(brandName);
     }
 
-    @And("the user selects the Sort by option and chooses {string}")
-    public void theUserSelectsTheSortByOptionAndChooses(String option) {
-        productPage.userSelectSortOption(option);
-    }
-
-    @Then("verify all listed products are sorted by popularity")
-    public void verifyAllListedProductsAreSortedByPopularity() {
-        Assert.assertTrue(productPage.isProductSortedByPopularity());
-    }
-
-    @Then("verify all listed products are displayed in ascending order price")
-    public void verifyAllListedProductsAreDisplayedInAscendingOrderPrice() {
-        Assert.assertTrue(productPage.isPriceSortedLowToHigh());
-    }
-
-    @Then("verify all listed products are displayed in descending order price")
-    public void verifyAllListedProductsAreDisplayedInDescendingOrderPrice() {
-        Assert.assertTrue(productPage.isPriceSortedHighToLow());
-    }
-
-    @Then("verify all listed products are displayed based on new arrival")
-    public void verifyAllListedProductsAreDisplayedBasedOnNewArrival() {
-       Assert.assertTrue(productPage.isProductSortedByNewArrival());
-    }
-
-    @Then("verify user should see product prices sorted by discounts")
-    public void verifyUserShouldSeeProductPricesSortedByDiscounts() {
-       Assert.assertTrue( productPage.isProductSortedByDiscount());
+    @When("the user clicks on a product that contains the keyword {string}")
+    public void theUserClicksOnAProductThatContainsTheKeyword(String keyword) {
+        productPage.userClickProductContainKeyword(keyword);
     }
 }
