@@ -11,19 +11,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 
-public class HomePageSteps {
-
-    HomePage homePage;
-
-    public HomePageSteps(){
-        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
-            homePage = new WebHomePage();
-        }
-        else{
-            homePage = new AndroidHomePage();
-        }
-    }
-
+public class HomePageSteps extends BaseSteps{
 
     @Given("user open application {string}")
     public void userOpenApplication(String category) {

@@ -8,4 +8,6 @@ public interface MyBagPage {
     void userClickCheckOutButton();
 
     void userEnterPinCodeDeliver(String pinCode);
+
+    void removeMyBagProducts();
 }

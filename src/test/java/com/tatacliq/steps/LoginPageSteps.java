@@ -12,19 +12,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class LoginPageSteps {
-
-    LoginPage loginPage;
-
-    public LoginPageSteps(){
-        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
-            loginPage = new WebLoginPage();
-        }
-        else{
-            loginPage = new AndroidLoginPage();
-        }
-    }
-
+public class LoginPageSteps extends BaseSteps {
 
     @When("user enter phone number {string}")
     public void user_enter_phone_number(String number)  {

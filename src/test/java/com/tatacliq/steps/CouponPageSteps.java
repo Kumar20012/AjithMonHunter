@@ -4,23 +4,13 @@ import com.tatacliq.pages.android.AndroidCouponPage;
 import com.tatacliq.pages.android.AndroidMyBagPage;
 import com.tatacliq.pages.ui.CouponPage;
 import com.tatacliq.pages.ui.MyBagPage;
-import com.tatacliq.pages.web.WebCouponPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class CouponPageSteps
-{
-    CouponPage couponPage;
+public class CouponPageSteps extends BaseSteps {
 
-    public CouponPageSteps() {
-        if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            couponPage=new WebCouponPage();
-        } else {
-            couponPage = new AndroidCouponPage();
-        }
-    }
     @Then("verify the user should be on the coupon page")
     public void verify_the_user_should_be_on_the_coupon_page() {
         Assert.assertTrue(couponPage.verifyUserOnCouponPage());

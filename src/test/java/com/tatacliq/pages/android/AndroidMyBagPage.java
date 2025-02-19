@@ -19,8 +19,11 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Submit\"]")
     WebElement submitButton;
 
-    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.view.View[3]/android.view.View")
-    WebElement addressDetailBox;
+    @FindBy(id = "com.tul.tatacliq:id/text_view_remove_product")
+    WebElement removeButton;
+
+    @FindBy(xpath = "//android.widget.ImageButton")
+    WebElement backArrows;
 
     @Override
     public boolean verifyUserOnMyBagPage() {
@@ -45,6 +48,12 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
         driver.findElement(By.xpath("//android.widget.EditText")).sendKeys(pinCode);
         submitButton.click();
         checkOutButton.click();
+    }
+
+    @Override
+    public void removeMyBagProducts() {
+        removeButton.click();
+        backArrows.click();
     }
 
 

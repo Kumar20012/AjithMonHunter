@@ -8,7 +8,8 @@ Feature: Validate that the user can purchase a product
     Then verify the number is valid
     And click continue button
     Then verify user on home page
-    When user enter search product "product.watch"
+    When remove the my bag products
+    And user enter search product "product.watch"
     Then verify user on product page
     When the user clicks on a product that contains the keyword "Fossil"
     Then verify the user should be on the product details page
