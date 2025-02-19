@@ -4,6 +4,7 @@ import com.tatacliq.pages.android.AndroidHomePage;
 import com.tatacliq.pages.android.AndroidProductDetailsPage;
 import com.tatacliq.pages.ui.ProductDetailsPage;
 import com.tatacliq.pages.web.WebHomePage;
+import com.tatacliq.pages.web.WebProductDetailsPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +15,7 @@ public class ProductDetailsSteps {
 
     public ProductDetailsSteps(){
         if(ConfigurationManager.getConfigValues("application.type").equals("web")){
-            //productDetailsPage= new WebProductDeatilsPage();
+           productDetailsPage=new WebProductDetailsPage();
         }
         else{
             productDetailsPage = new AndroidProductDetailsPage();

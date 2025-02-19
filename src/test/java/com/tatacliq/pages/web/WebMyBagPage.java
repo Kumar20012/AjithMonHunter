@@ -10,7 +10,7 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     @FindBy(xpath = "//span[text()='Checkout']")
     WebElement checkoutBtn;
 
-    @FindBy(className = "Coupon__apply")
+    @FindBy(xpath = "//div[@class='Coupon__apply']/div/div")
     WebElement applyCouponBtn;
 
     @FindBy(xpath = "//span[text()='Deliver Here']")
@@ -29,18 +29,21 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
 
     @Override
     public void userClickCoupon() {
-        applyCouponBtn.click();
+        click(applyCouponBtn);
+        pause(5);
     }
 
     @Override
     public void userClickCheckOutButton() {
-        checkoutBtn.click();
+        click(checkoutBtn);
     }
 
     @Override
     public void userEnterPinCodeDeliver(String pinCode) {
+        pause(2);
         addressSelectBtn.click();
         deliverBtn.click();
+        pause(2);
         checkoutBtn.click();
     }
 }

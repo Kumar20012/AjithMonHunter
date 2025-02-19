@@ -2,6 +2,7 @@ package com.tatacliq.steps;
 
 import com.tatacliq.pages.android.AndroidMyBagPage;
 import com.tatacliq.pages.ui.MyBagPage;
+import com.tatacliq.pages.web.WebMyBagPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -14,7 +15,7 @@ public class MyBagSteps {
 
     public MyBagSteps() {
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            //productDetailsPage= new WebProductDeatilsPage();
+            myBagPage=new WebMyBagPage();
         } else {
             myBagPage = new AndroidMyBagPage();
         }

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -35,6 +36,35 @@ public class WebBasePage {
         }
 
     }
+
+    protected void click(WebElement element) {
+        try {
+            element.click();
+        } catch (Exception e) {
+            executor.executeScript("arguments[0].click();", element);
+        }
+    }
+
+    protected void waitTillVisible(WebElement ele) {
+        wait.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    public static void switchToSecondWindow(WebDriver driver) {
+        String currentWindowHandle = driver.getWindowHandle();
+        Set<String> allWindowHandles = driver.getWindowHandles();
+        for (String handle : allWindowHandles) {
+            if (!handle.equals(currentWindowHandle)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
+    }
+
+    public static void switchToOriginalWindow(WebDriver driver) {
+        String currentWindowHandle = driver.getWindowHandle();
+        driver.switchTo().window(currentWindowHandle);
+    }
+
     protected void moveToElement(WebElement ele) {
         actions.moveToElement(ele).build().perform();
     }

@@ -4,6 +4,7 @@ import com.tatacliq.pages.android.AndroidCouponPage;
 import com.tatacliq.pages.android.AndroidMyBagPage;
 import com.tatacliq.pages.ui.CouponPage;
 import com.tatacliq.pages.ui.MyBagPage;
+import com.tatacliq.pages.web.WebCouponPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +16,7 @@ public class CouponPageSteps
 
     public CouponPageSteps() {
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            //productDetailsPage= new WebProductDeatilsPage();
+            couponPage=new WebCouponPage();
         } else {
             couponPage = new AndroidCouponPage();
         }

@@ -4,6 +4,7 @@ import com.tatacliq.pages.android.AndroidCheckOutPage;
 import com.tatacliq.pages.android.AndroidCouponPage;
 import com.tatacliq.pages.ui.CheckOutPage;
 import com.tatacliq.pages.ui.CouponPage;
+import com.tatacliq.pages.web.WebCheckOutPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +16,7 @@ public class CheckOutPageSteps {
 
     public CheckOutPageSteps() {
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            //productDetailsPage= new WebProductDeatilsPage();
+            checkOutPage=new WebCheckOutPage();
         } else {
             checkOutPage = new AndroidCheckOutPage();
         }

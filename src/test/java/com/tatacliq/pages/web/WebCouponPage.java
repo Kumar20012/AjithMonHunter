@@ -21,7 +21,9 @@ public class WebCouponPage extends WebBasePage implements CouponPage {
     public void userApplyCoupon() {
         if (applyBtn.isDisplayed()) {
             applyBtn.click();
+        }else {
+            closeCouponBtn.click();
         }
-        closeCouponBtn.click();
+        pause(5);
     }
 }

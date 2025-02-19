@@ -25,8 +25,8 @@ public class WebCheckOutPage extends WebBasePage implements CheckOutPage {
 
     @Override
     public boolean verifyPayNowButton() {
-        netBankOption.click();
-        selectBankBtn.click();
+        click(netBankOption);
+        click(selectBankBtn);
         return payNowBtn.isEnabled();
     }
 }

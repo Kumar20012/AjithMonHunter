@@ -19,7 +19,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     @FindBy(xpath = "//select[@class='SelectBoxDesktop__hideSelect']")
     WebElement selectFilter;
 
-    @FindBy(xpath = "//div[@class='ProductDescription__content']/h2")
+    @FindBy(xpath = "//div[@class='ProductModule__base']//div[@class='ProductDescription__content']/h2")
     List<WebElement> listOfProduct;
 
     @FindBy(xpath = "//div[@class='ProductDescription__discount ProductDescription__priceHolder']/h3")
@@ -69,13 +69,14 @@ public class WebProductPage extends WebBasePage implements ProductPage {
     }
 
     public void userClickProductContainKeyword(String keyword){
-        for(WebElement ele:listOfProduct){
-            if(ele.getText().contains(keyword)){
+        for(WebElement ele:dummyProductList){
+            if(ele.findElement(By.xpath(".//div[@class='ProductDescription__content']/h2")).getText().contains(keyword)){
                 ele.click();
+                switchToSecondWindow(driver);
                 return;
             }
         }
-        switchToWindow();
+
     }
 
     public void userSelectBrandName(String brandName) {
