@@ -18,9 +18,12 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
      @FindBy(className = "DesktopHeader__myBagShow")
      WebElement cartBtn;
 
+     @FindBy(xpath = "//button[text()='Give Feedback']")
+     WebElement feedbackBtn;
+
     @Override
     public boolean verifyUserOnProductDetailsPage() {
-        return addToBagBtn.isDisplayed();
+        return addToBagBtn.isDisplayed()|| buyNowBtn.isDisplayed();
     }
 
     @Override
@@ -36,5 +39,8 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
     @Override
     public void userClickOnMYBagIcon() {
         click(cartBtn);
+    }
+    public void clickOnFeedbackButton(){
+        click(feedbackBtn);
     }
 }

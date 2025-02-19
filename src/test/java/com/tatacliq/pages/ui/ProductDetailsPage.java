@@ -8,4 +8,5 @@ public interface ProductDetailsPage {
     boolean verifyTheItemAddedToMyBag();
 
     void userClickOnMYBagIcon();
+    void clickOnFeedbackButton();
 }

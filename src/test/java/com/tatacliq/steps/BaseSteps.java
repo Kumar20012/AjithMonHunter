@@ -13,6 +13,7 @@ public class BaseSteps {
     MyBagPage myBagPage;
     ProductDetailsPage productDetailsPage;
     ProductPage productPage;
+    FeedbackPage feedbackPage;
 
     public BaseSteps(){
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
@@ -23,6 +24,7 @@ public class BaseSteps {
             myBagPage = new WebMyBagPage();
             productPage = new WebProductPage();
             productDetailsPage= new WebProductDetailsPage();
+            feedbackPage=new WebFeedbackPage();
         } else {
             checkOutPage = new AndroidCheckOutPage();
             couponPage = new AndroidCouponPage();
@@ -31,6 +33,7 @@ public class BaseSteps {
             myBagPage = new AndroidMyBagPage();
             productPage = new AndroidProductPage();
             productDetailsPage= new AndroidProductDetailsPage();
+            feedbackPage=new AndroidFeedbackPage();
         }
     }
 

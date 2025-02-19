@@ -15,7 +15,7 @@ public class DriverManager {
 
     public static void createDriver() {
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            driver = new ChromeDriver();
+            driver = new EdgeDriver();
             driver.manage().window().maximize();
         } else {
             DesiredCapabilities capabilities = new DesiredCapabilities();

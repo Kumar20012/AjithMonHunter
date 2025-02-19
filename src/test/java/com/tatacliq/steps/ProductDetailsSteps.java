@@ -29,4 +29,8 @@ public class ProductDetailsSteps extends BaseSteps {
         productDetailsPage.userClickOnMYBagIcon();
     }
 
+    @When("user click on feedback button")
+    public void userClickOnFeedbackButton() {
+        productDetailsPage.clickOnFeedbackButton();
+    }
 }

@@ -82,6 +82,9 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
         }
         showResultButton.click();
     }
+    public void userClickOneProduct(){
+        priceList.getFirst().click();
+    }
 
     public void userClickProductContainKeyword(String keyword) {
         while (!isDisplayedCheck(noProduct)) {
