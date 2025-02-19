@@ -31,7 +31,7 @@ public class AndroidCheckOutPage extends AndroidBasePage implements CheckOutPage
 
     @Override
     public boolean verifyPayNowButton() {
-        while (isDisplayedCheck(upiOption)){
+        while (!isDisplayedCheck(upiOption)){
             scrollPage();
         }
         upiArrow.click();

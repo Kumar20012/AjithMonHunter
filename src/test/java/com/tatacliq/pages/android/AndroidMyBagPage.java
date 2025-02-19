@@ -1,6 +1,7 @@
 package com.tatacliq.pages.android;
 
 import com.tatacliq.pages.ui.MyBagPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,6 +18,9 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Submit\"]")
     WebElement submitButton;
+
+    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View[2]/android.view.View[3]/android.view.View")
+    WebElement addressDetailBox;
 
     @Override
     public boolean verifyUserOnMyBagPage() {
@@ -35,8 +39,10 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
 
     @Override
     public void userEnterPinCodeDeliver(String pinCode) {
+        pause(3);
         pinCodeBar.click();
-        pinCodeBar.sendKeys(pinCode);
+        pause(3);
+        driver.findElement(By.xpath("//android.widget.EditText")).sendKeys(pinCode);
         submitButton.click();
         checkOutButton.click();
     }

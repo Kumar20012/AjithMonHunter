@@ -37,6 +37,6 @@ public class MyBagSteps {
 
     @And("user fill delivery address details {string}")
     public void userFillDeliveryAddressDetails(String pinCode) {
-        myBagPage.userEnterPinCodeDeliver(pinCode);
+        myBagPage.userEnterPinCodeDeliver(ConfigurationManager.getConfigValues(pinCode));
     }
 }

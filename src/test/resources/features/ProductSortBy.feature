@@ -6,13 +6,14 @@ Feature: Validate sort by functionality on products
     When user enter search product "product.name"
     Then verify user on product page
 
-  Scenario: Verify user sort products by popularity
-    And  the user selects the Sort by option and chooses "Popularity"
-    Then verify all listed products are sorted by popularity
 
   Scenario: Verify user sort products by prices from low to high
     And the user selects the Sort by option and chooses "Price Low to High"
     Then verify all listed products are displayed in ascending order price
+
+  Scenario: Verify user sort products by popularity
+    And  the user selects the Sort by option and chooses "Popularity"
+    Then verify all listed products are sorted by popularity
 
   Scenario:  Verify user sort products by prices from high to low
     And the user selects the Sort by option and chooses "Price High to Low"
