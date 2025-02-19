@@ -20,7 +20,7 @@ public class WebBasePage {
 
     public WebBasePage() {
         driver = DriverManager.getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         executor = (JavascriptExecutor) driver;
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
@@ -35,6 +35,20 @@ public class WebBasePage {
             }
         }
 
+    }
+    public boolean isDisplayedCheck(WebElement element) {
+        try {
+            setImplicitWait(2);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(20);
+        }
+    }
+
+    private void setImplicitWait(long sec) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
     }
 
     protected void click(WebElement element) {

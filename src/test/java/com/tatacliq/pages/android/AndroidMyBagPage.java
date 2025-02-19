@@ -52,7 +52,7 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
 
     @Override
     public void removeMyBagProducts() {
-        if(removeButton.isDisplayed()){
+        if(isDisplayedCheck(removeButton)){
             removeButton.click();
         }
         backArrows.click();

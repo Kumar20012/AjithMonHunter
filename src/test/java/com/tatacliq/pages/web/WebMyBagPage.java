@@ -2,8 +2,10 @@ package com.tatacliq.pages.web;
 
 import com.tatacliq.pages.ui.MyBagPage;
 import com.tatacliq.utils.ConfigurationManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebMyBagPage extends WebBasePage implements MyBagPage {
 
@@ -13,20 +15,22 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     @FindBy(xpath = "//div[@class='Coupon__apply']/div/div")
     WebElement applyCouponBtn;
 
-    @FindBy(xpath = "//span[text()='Deliver Here']")
-    WebElement deliverBtn;
-
     @FindBy(xpath = "//span[text()='Submit']")
     WebElement submitBtn;
 
     @FindBy(className = "CartItemForDesktop__removeLabelForCartPage")
     WebElement removeButton;
 
-    @FindBy(xpath = "//input[@class='AddressItem__unselectedRadio']")
-    WebElement addressSelectBtn;
 
-    @FindBy(xpath = "//span[text()='Continue Shopping']")
+    @FindBy(xpath = "//span[contains(text(), 'Continue Shopping')]/..")
     WebElement continueShoppingBtn;
+
+    @FindBy(xpath = "//span[contains(text(), 'Continue Shopping')]")
+    WebElement ele;
+
+    @FindBy(xpath = "//input[@placeholder=\"Type Pincode Here\"]")
+    WebElement textBar;
+
 
     @Override
     public boolean verifyUserOnMyBagPage() {
@@ -46,19 +50,21 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
 
     @Override
     public void userEnterPinCodeDeliver(String pinCode) {
-        pause(2);
-        addressSelectBtn.click();
-        deliverBtn.click();
-        pause(2);
+        pause(5);
+        textBar.click();
+        textBar.sendKeys(pinCode);
+        submitBtn.click();
         checkoutBtn.click();
     }
 
     @Override
     public void removeMyBagProducts() {
-        if(removeButton.isDisplayed()){
-            click(removeButton);
+        if(isDisplayedCheck(ele)){
             continueShoppingBtn.click();
         }
-        continueShoppingBtn.click();
+        else{
+            removeButton.click();
+            continueShoppingBtn.click();
+        }
     }
 }
