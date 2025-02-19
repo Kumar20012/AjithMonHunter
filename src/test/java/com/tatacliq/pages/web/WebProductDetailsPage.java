@@ -35,6 +35,6 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
 
     @Override
     public void userClickOnMYBagIcon() {
-        cartBtn.click();
+        click(cartBtn);
     }
 }

@@ -19,8 +19,14 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     @FindBy(xpath = "//span[text()='Submit']")
     WebElement submitBtn;
 
+    @FindBy(className = "CartItemForDesktop__removeLabelForCartPage")
+    WebElement removeButton;
+
     @FindBy(xpath = "//input[@class='AddressItem__unselectedRadio']")
     WebElement addressSelectBtn;
+
+    @FindBy(xpath = "//span[text()='Continue Shopping']")
+    WebElement continueShoppingBtn;
 
     @Override
     public boolean verifyUserOnMyBagPage() {
@@ -49,6 +55,10 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
 
     @Override
     public void removeMyBagProducts() {
-
+        if(removeButton.isDisplayed()){
+            click(removeButton);
+            continueShoppingBtn.click();
+        }
+        continueShoppingBtn.click();
     }
 }
