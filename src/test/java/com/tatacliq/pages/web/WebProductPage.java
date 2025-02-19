@@ -68,9 +68,14 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         ele.click();
     }
 
-    @Override
-    public void userClickProductContainKeyword(String keyword) {
-
+    public void userClickProductContainKeyword(String keyword){
+        for(WebElement ele:listOfProduct){
+            if(ele.getText().contains(keyword)){
+                ele.click();
+                return;
+            }
+        }
+        switchToWindow();
     }
 
     public void userSelectBrandName(String brandName) {
