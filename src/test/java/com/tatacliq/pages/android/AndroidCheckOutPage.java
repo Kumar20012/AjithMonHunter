@@ -11,14 +11,6 @@ public class AndroidCheckOutPage extends AndroidBasePage implements CheckOutPage
     @FindBy(id = "com.tul.tatacliq:id/toolbar_title")
     WebElement checkoutText;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/text_view_payment_method\" and @text=\"UPI\"]")
-    WebElement upiOption;
-
-    @FindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.tul.tatacliq:id/image_view_expend_payment_method\"])[2]")
-    WebElement upiArrow;
-
-    @FindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.tul.tatacliq:id/ivUPIAppLogo\"])[1]")
-    WebElement googlePayLogo;
 
     @FindBy(id = "com.tul.tatacliq:id/button_my_bag_checkout")
     WebElement payNowButton;
@@ -31,11 +23,6 @@ public class AndroidCheckOutPage extends AndroidBasePage implements CheckOutPage
 
     @Override
     public boolean verifyPayNowButton() {
-        while (!isDisplayedCheck(upiOption)){
-            scrollPage();
-        }
-        upiArrow.click();
-        googlePayLogo.click();
         return payNowButton.isDisplayed();
     }
 }

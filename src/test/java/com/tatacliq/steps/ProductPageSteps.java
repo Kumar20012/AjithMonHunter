@@ -9,25 +9,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class ProductPageSteps {
-
-    ProductPage productPage;
-
-    public ProductPageSteps(){
-        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
-           productPage=new WebProductPage();
-        }
-        else{
-            productPage=new AndroidProductPage();
-        }
-    }
-
+public class ProductPageSteps extends BaseSteps {
 
     @Then("verify user on product page")
     public void verifyUserOnProductPage() {
         Assert.assertTrue(productPage.verifyUserOnProductPage());
     }
-
 
     @Then("display the product details")
     public void displayTheProductDetails() {
@@ -51,7 +38,7 @@ public class ProductPageSteps {
 
     @And("the user selects the Sort by option and chooses {string}")
     public void theUserSelectsTheSortByOptionAndChooses(String option) {
-       productPage.userSelectSortOption(option);
+        productPage.userSelectSortOption(option);
     }
 
     @Then("verify all listed products are sorted by popularity")

@@ -43,4 +43,9 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
         deliverBtn.click();
         checkoutBtn.click();
     }
+
+    @Override
+    public void removeMyBagProducts() {
+
+    }
 }

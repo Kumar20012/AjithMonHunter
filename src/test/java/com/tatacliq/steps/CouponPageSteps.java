@@ -9,17 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class CouponPageSteps
-{
-    CouponPage couponPage;
+public class CouponPageSteps extends BaseSteps {
 
-    public CouponPageSteps() {
-        if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            //productDetailsPage= new WebProductDeatilsPage();
-        } else {
-            couponPage = new AndroidCouponPage();
-        }
-    }
     @Then("verify the user should be on the coupon page")
     public void verify_the_user_should_be_on_the_coupon_page() {
         Assert.assertTrue(couponPage.verifyUserOnCouponPage());

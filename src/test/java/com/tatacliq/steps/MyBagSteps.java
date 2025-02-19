@@ -1,6 +1,7 @@
 package com.tatacliq.steps;
 
 import com.tatacliq.pages.android.AndroidMyBagPage;
+import com.tatacliq.pages.android.AndroidProductDetailsPage;
 import com.tatacliq.pages.ui.MyBagPage;
 import com.tatacliq.utils.ConfigurationManager;
 import io.cucumber.java.en.And;
@@ -8,17 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class MyBagSteps {
-
-    MyBagPage myBagPage;
-
-    public MyBagSteps() {
-        if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
-            //productDetailsPage= new WebProductDeatilsPage();
-        } else {
-            myBagPage = new AndroidMyBagPage();
-        }
-    }
+public class MyBagSteps extends BaseSteps{
 
     @Then("verify the user should be on the My Bag page")
     public void verify_the_user_should_be_on_the_my_bag_page() {
@@ -38,5 +29,11 @@ public class MyBagSteps {
     @And("user fill delivery address details {string}")
     public void userFillDeliveryAddressDetails(String pinCode) {
         myBagPage.userEnterPinCodeDeliver(ConfigurationManager.getConfigValues(pinCode));
+    }
+
+    @When("remove the my bag products")
+    public void removeTheMybagProdcts() {
+        productDetailsPage.userClickOnMYBagIcon();
+        myBagPage.removeMyBagProducts();
     }
 }

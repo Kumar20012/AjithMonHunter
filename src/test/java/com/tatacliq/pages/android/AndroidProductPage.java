@@ -42,8 +42,11 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/textViewProductSP\"]")
     List<WebElement> priceList;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/text_discount\"]")
+    @FindBy(id = "com.tul.tatacliq:id/text_discount")
     List<WebElement> productDiscount;
+
+    @FindBy(id="com.tul.tatacliq:id/sortBack")
+    WebElement sortBack;
 
     String xpath_sort = "//android.widget.TextView[@text='%s']";
 
@@ -99,6 +102,7 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
     }
 
     public boolean isProductSortedByPopularity() {
+        sortBack.click();
         return popularityVerify.isDisplayed();
     }
 

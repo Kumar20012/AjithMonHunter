@@ -9,18 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class ProductDetailsSteps {
-    ProductDetailsPage productDetailsPage;
-
-    public ProductDetailsSteps(){
-        if(ConfigurationManager.getConfigValues("application.type").equals("web")){
-            //productDetailsPage= new WebProductDeatilsPage();
-        }
-        else{
-            productDetailsPage = new AndroidProductDetailsPage();
-        }
-    }
-
+public class ProductDetailsSteps extends BaseSteps {
 
     @Then("verify the user should be on the product details page")
     public void verify_the_user_should_be_on_the_product_details_page() {
@@ -39,6 +28,5 @@ public class ProductDetailsSteps {
     public void the_user_clicks_on_the_my_bag_icon() {
         productDetailsPage.userClickOnMYBagIcon();
     }
-
 
 }
