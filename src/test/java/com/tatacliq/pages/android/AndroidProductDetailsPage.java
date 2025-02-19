@@ -16,6 +16,9 @@ public class AndroidProductDetailsPage extends AndroidBasePage implements Produc
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/cartBadge\"]")
     WebElement bagValue;
 
+    @FindBy(id="com.tul.tatacliq:id/appCompatTextView2")
+    WebElement feedbackBtn;
+
     @Override
     public boolean verifyUserOnProductDetailsPage() {
         return  addToBagButton.isDisplayed();
@@ -34,5 +37,12 @@ public class AndroidProductDetailsPage extends AndroidBasePage implements Produc
     @Override
     public void userClickOnMYBagIcon() {
         myBagIcon.click();
+    }
+
+    public void clickOnFeedbackButton(){
+        while (!isDisplayedCheck(feedbackBtn)){
+            scrollPage();
+        }
+        feedbackBtn.click();
     }
 }

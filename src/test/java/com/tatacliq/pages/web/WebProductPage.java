@@ -72,7 +72,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         for(WebElement ele:dummyProductList){
             if(ele.findElement(By.xpath(".//div[@class='ProductDescription__content']/h2")).getText().contains(keyword)){
                 ele.click();
-                switchToWindow();
+                switchToSecondWindow(driver);
                 return;
             }
         }
@@ -137,6 +137,10 @@ public class WebProductPage extends WebBasePage implements ProductPage {
             }
         }
         return false;
+    }
+    public  void userClickOneProduct(){
+        click(listOfProduct.getFirst());
+        switchToSecondWindow(driver);
     }
 
 }

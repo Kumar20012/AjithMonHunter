@@ -65,4 +65,9 @@ public class ProductPageSteps extends BaseSteps {
     public void verifyUserShouldSeeProductPricesSortedByDiscounts() {
         Assert.assertTrue(productPage.isProductSortedByDiscount());
     }
+
+    @When("user click on the first product from product list")
+    public void userClickOnTheFirstProductFromProductList() {
+        productPage.userClickOneProduct();
+    }
 }
