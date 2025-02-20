@@ -17,4 +17,5 @@ public interface ProductPage {
     boolean isProductSortedByNewArrival();
     boolean isProductSortedByDiscount();
     void userClickOneProduct();
+    void userClickWishListBtn();
 }

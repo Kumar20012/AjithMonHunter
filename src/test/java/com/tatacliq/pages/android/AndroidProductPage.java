@@ -1,6 +1,7 @@
 package com.tatacliq.pages.android;
 
 import com.tatacliq.pages.ui.ProductPage;
+import com.tatacliq.utils.ConfigurationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,6 +48,12 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
 
     @FindBy(id="com.tul.tatacliq:id/sortBack")
     WebElement sortBack;
+
+    @FindBy(xpath ="//android.widget.ImageView[@resource-id='com.tul.tatacliq:id/imageViewAddToWishListGrid']")
+    WebElement wishListBtn;
+
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Wish List']")
+    WebElement wishListIcon;
 
     String xpath_sort = "//android.widget.TextView[@text='%s']";
 
@@ -143,5 +150,11 @@ public class AndroidProductPage extends AndroidBasePage implements ProductPage {
             }
         }
         return false;
+    }
+
+    public void userClickWishListBtn(){
+        ConfigurationManager.setConfigValue("first.brand",priceList.getFirst().getText());
+        wishListBtn.click();
+        wishListIcon.click();
     }
 }

@@ -70,4 +70,9 @@ public class ProductPageSteps extends BaseSteps {
     public void userClickOnTheFirstProductFromProductList() {
         productPage.userClickOneProduct();
     }
+
+    @When("user add the product into wish list")
+    public void userAddTheProductIntoWishList() {
+        productPage.userClickWishListBtn();
+    }
 }

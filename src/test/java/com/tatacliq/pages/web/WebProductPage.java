@@ -142,5 +142,8 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         click(listOfProduct.getFirst());
         switchToSecondWindow(driver);
     }
+    public void userClickWishListBtn(){
+
+    }
 
 }
