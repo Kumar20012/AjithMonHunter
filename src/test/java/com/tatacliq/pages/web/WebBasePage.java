@@ -26,17 +26,6 @@ public class WebBasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public  void switchToWindow(){
-        String currentWindow = driver.getWindowHandle();
-        Set<String> allWindow = driver.getWindowHandles();
-        for(String window : allWindow){
-            if(!window.equals(currentWindow)){
-                driver.switchTo().window(window);
-            }
-        }
-
-    }
-
     protected void click(WebElement element) {
         try {
             element.click();
@@ -49,7 +38,7 @@ public class WebBasePage {
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
-    public static void switchToSecondWindow(WebDriver driver) {
+    protected void switchToSecondWindow(WebDriver driver) {
         String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         for (String handle : allWindowHandles) {
@@ -60,7 +49,7 @@ public class WebBasePage {
         }
     }
 
-    public static void switchToOriginalWindow(WebDriver driver) {
+    protected void switchToOriginalWindow(WebDriver driver) {
         String currentWindowHandle = driver.getWindowHandle();
         driver.switchTo().window(currentWindowHandle);
     }
@@ -69,7 +58,7 @@ public class WebBasePage {
         actions.moveToElement(ele).build().perform();
     }
 
-    public void pause(int sec){
+    protected void pause(int sec){
         try {
             Thread.sleep(Duration.ofSeconds(sec).toMillis());
         } catch (InterruptedException e) {

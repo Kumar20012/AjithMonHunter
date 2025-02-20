@@ -1,5 +1,6 @@
 Feature: Validate the product search and select filter
-  Scenario: verify all search details
+
+  Background:
     Given user open application "MEN"
     Then verify user on home page
     When user click login button
@@ -10,11 +11,19 @@ Feature: Validate the product search and select filter
     Then verify user on home page
     When user enter search product "product.name"
     Then verify user on product page
+
+  Scenario: verify all search details
     When the user can select filter option "Brand"
     And user select the "Puma" brand
     When the user can select filter option "Size"
     And user select the "UK/IND-3.5" brand
     Then display the product details
+
+  Scenario: Verify user can add and delete product in wish list
+    When user add the product into wish list
+    Then verify product added in wish list successfully
+    When user delete the product from wish list
+    Then verify product deleted from wish list successfully
 
 
 

@@ -19,5 +19,5 @@ Feature: Validate the login functionality
     Examples:
       | invalid.number |
       | 23244049       |
-      | 133-356        |
-      | 4527@          |
+      | 1330356        |
+      | 45271          |

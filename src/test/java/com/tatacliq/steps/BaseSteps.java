@@ -14,6 +14,7 @@ public class BaseSteps {
     ProductDetailsPage productDetailsPage;
     ProductPage productPage;
     FeedbackPage feedbackPage;
+    WishListPage wishListPage;
 
     public BaseSteps(){
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
@@ -34,6 +35,7 @@ public class BaseSteps {
             productPage = new AndroidProductPage();
             productDetailsPage= new AndroidProductDetailsPage();
             feedbackPage=new AndroidFeedbackPage();
+            wishListPage=new AndroidWishListPage();
         }
     }
 
