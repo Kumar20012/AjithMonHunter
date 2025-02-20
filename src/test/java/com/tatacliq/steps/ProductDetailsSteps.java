@@ -5,6 +5,7 @@ import com.tatacliq.pages.android.AndroidProductDetailsPage;
 import com.tatacliq.pages.ui.ProductDetailsPage;
 import com.tatacliq.pages.web.WebHomePage;
 import com.tatacliq.utils.ConfigurationManager;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -32,5 +33,9 @@ public class ProductDetailsSteps extends BaseSteps {
     @When("user click on feedback button")
     public void userClickOnFeedbackButton() {
         productDetailsPage.clickOnFeedbackButton();
+    }
+
+    @And("the user click buy now button")
+    public void theUserClickBuyNowButton() {
     }
 }

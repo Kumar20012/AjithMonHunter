@@ -44,4 +44,23 @@ public class HomePageSteps extends BaseSteps{
         homePage.userClickLogoutButton();
     }
 
+    @And("user navigate to the address input page")
+    public void iNavigateToTheAddressInputPage() {
+        homePage.navigateAddressInput();
+    }
+
+    @When("user enter {string}, {string}, {string}, {string}, {string}")
+    public void userEnter(String PIN, String firstname, String lastname, String address, String number) {
+        homePage.userFillAddressDetails(PIN,firstname,lastname, address,  number);
+    }
+
+    @And("user submit the address form")
+    public void iSubmitTheAddressForm() {
+        homePage.userClickAddressSubmit();
+    }
+
+    @Then("before adding the details display the existing address details")
+    public void beforeAddingTheDetailsDisplayTheExistingAddressDetails() {
+        homePage.displayAddressDetails();
+    }
 }

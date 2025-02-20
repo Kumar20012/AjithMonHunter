@@ -77,5 +77,25 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         logoutButton.click();
     }
 
+    @Override
+    public void navigateAddressInput() {
+
+    }
+
+    @Override
+    public void userFillAddressDetails(String PIN, String firstname, String lastname, String address, String number) {
+
+    }
+
+    @Override
+    public void displayAddressDetails() {
+
+    }
+
+    @Override
+    public void userClickAddressSubmit() {
+
+    }
+
 
 }

@@ -7,4 +7,10 @@ public interface HomePage {
     void userOpenApplication(String val);
     void userClickMyAccountIcon();
     void userClickLogoutButton();
+
+    void navigateAddressInput();
+
+    void userFillAddressDetails(String PIN, String firstname, String lastname, String address, String number);
+    void displayAddressDetails();
+    void userClickAddressSubmit();
 }
