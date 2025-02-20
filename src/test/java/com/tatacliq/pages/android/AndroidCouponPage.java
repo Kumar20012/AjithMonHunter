@@ -19,7 +19,7 @@ public class AndroidCouponPage extends AndroidBasePage implements CouponPage {
 
     @Override
     public void userApplyCoupon() {
-        if(applyButton.isDisplayed()){
+        if(isDisplayedCheck(applyButton)){
             applyButton.click();
         }
         else{

@@ -20,10 +20,35 @@ public class WebBasePage {
 
     public WebBasePage() {
         driver = DriverManager.getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         executor = (JavascriptExecutor) driver;
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    public  void switchToWindow(){
+        String currentWindow = driver.getWindowHandle();
+        Set<String> allWindow = driver.getWindowHandles();
+        for(String window : allWindow){
+            if(!window.equals(currentWindow)){
+                driver.switchTo().window(window);
+            }
+        }
+
+    }
+    public boolean isDisplayedCheck(WebElement element) {
+        try {
+            setImplicitWait(2);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        } finally {
+            setImplicitWait(20);
+        }
+    }
+
+    private void setImplicitWait(long sec) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
     }
 
     protected void click(WebElement element) {
@@ -38,7 +63,7 @@ public class WebBasePage {
         wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
-    protected void switchToSecondWindow(WebDriver driver) {
+    public static void switchToSecondWindow(WebDriver driver) {
         String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
         for (String handle : allWindowHandles) {
@@ -49,7 +74,7 @@ public class WebBasePage {
         }
     }
 
-    protected void switchToOriginalWindow(WebDriver driver) {
+    public static void switchToOriginalWindow(WebDriver driver) {
         String currentWindowHandle = driver.getWindowHandle();
         driver.switchTo().window(currentWindowHandle);
     }
@@ -58,7 +83,7 @@ public class WebBasePage {
         actions.moveToElement(ele).build().perform();
     }
 
-    protected void pause(int sec){
+    public void pause(int sec){
         try {
             Thread.sleep(Duration.ofSeconds(sec).toMillis());
         } catch (InterruptedException e) {

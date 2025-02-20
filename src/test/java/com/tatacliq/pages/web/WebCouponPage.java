@@ -19,9 +19,10 @@ public class WebCouponPage extends WebBasePage implements CouponPage {
 
     @Override
     public void userApplyCoupon() {
-        if (applyBtn.isDisplayed()) {
+        if (isDisplayedCheck(applyBtn)) {
             applyBtn.click();
-        }else {
+        }
+        else {
             closeCouponBtn.click();
         }
         pause(5);

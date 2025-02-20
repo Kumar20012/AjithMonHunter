@@ -28,7 +28,7 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
 
     @Override
     public void ClickOnAddToBagButton() {
-        addToBagBtn.click();
+        click(addToBagBtn);
     }
 
     @Override
@@ -38,6 +38,7 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
 
     @Override
     public void userClickOnMYBagIcon() {
+        pause(5);
         click(cartBtn);
     }
     public void clickOnFeedbackButton(){
