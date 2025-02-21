@@ -36,4 +36,14 @@ public class MyBagSteps extends BaseSteps{
         productDetailsPage.userClickOnMYBagIcon();
         myBagPage.removeMyBagProducts();
     }
+
+    @When("user increase the quantity of product to {string}")
+    public void userIncreaseTheQuantityOfProductTo(String quantity) {
+        myBagPage.userIncreaseQuantity(ConfigurationManager.getConfigValues(quantity));
+    }
+
+    @Then("verify the product price equal to quantity increase price")
+    public void verifyTheProductPriceEqualToQuantityIncreasePrice() {
+        myBagPage.verifyProductPrice();
+    }
 }

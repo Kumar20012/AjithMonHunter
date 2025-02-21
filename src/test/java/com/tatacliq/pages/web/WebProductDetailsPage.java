@@ -1,6 +1,7 @@
 package com.tatacliq.pages.web;
 
 import com.tatacliq.pages.ui.ProductDetailsPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,6 +21,7 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
 
      @FindBy(xpath = "//button[text()='Give Feedback']")
      WebElement feedbackBtn;
+
 
     @Override
     public boolean verifyUserOnProductDetailsPage() {
@@ -43,5 +45,15 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
     }
     public void clickOnFeedbackButton(){
         click(feedbackBtn);
+    }
+
+    @Override
+    public void userClickBuyNowButton() {
+        if(isDisplayedCheck(buyNowBtn)){
+            buyNowBtn.click();
+        }
+        else{
+            driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
+        }
     }
 }

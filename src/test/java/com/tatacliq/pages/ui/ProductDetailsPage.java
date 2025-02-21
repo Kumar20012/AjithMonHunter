@@ -9,4 +9,6 @@ public interface ProductDetailsPage {
 
     void userClickOnMYBagIcon();
     void clickOnFeedbackButton();
+
+    void userClickBuyNowButton();
 }
