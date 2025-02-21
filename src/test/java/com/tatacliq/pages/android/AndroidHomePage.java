@@ -38,6 +38,28 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(id="com.tul.tatacliq:id/closeButton")
     WebElement closeBtn;
 
+    @FindBy(id="com.tul.tatacliq:id/txtAddressBook")
+    WebElement addressBtn;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Add Shipping Address']")
+    WebElement addDetailsBtn;
+
+    @FindBy(id = "com.tul.tatacliq:id/edtfirstName")
+    WebElement firstName;
+    @FindBy(id = "com.tul.tatacliq:id/edtLastName")
+    WebElement lastName;
+    @FindBy(id = "com.tul.tatacliq:id/edtAddress")
+    WebElement addressType;
+    @FindBy(id = "com.tul.tatacliq:id/edtPincode")
+    WebElement enterPIN;
+    @FindBy(id = "com.tul.tatacliq:id/edtPhoneNumber")
+    WebElement phoneNumber;
+    @FindBy(id = "com.tul.tatacliq:id/btnSave")
+    WebElement saveBtn;
+
+    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.TextView")
+    List<WebElement>addressList;
+
     public void userOpenApplication(String val){
         WebElement category = driver.findElement(By.xpath(String.format(x_path,val)));
         category.click();
@@ -79,23 +101,39 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     @Override
     public void navigateAddressInput() {
-
+        addressBtn.click();
     }
 
     @Override
     public void userFillAddressDetails(String PIN, String firstname, String lastname, String address, String number) {
-
+        firstName.click();
+        firstName.sendKeys(firstname);
+        lastName.click();
+        lastName.sendKeys(lastname);
+        scroll(lastName);
+        addressType.click();
+        addressType.sendKeys(address);
+        scroll(addressType);
+        enterPIN.click();
+        enterPIN.sendKeys(PIN);
+        while (!isDisplayedCheck(phoneNumber)){
+            scroll(enterPIN);
+        }
+        phoneNumber.click();
+        phoneNumber.sendKeys(number);
     }
 
     @Override
     public void displayAddressDetails() {
-
+        for(WebElement data : addressList){
+            System.out.println(data.getText());
+        }
+        addDetailsBtn.click();
     }
 
     @Override
     public void userClickAddressSubmit() {
-
+        saveBtn.click();
     }
-
 
 }

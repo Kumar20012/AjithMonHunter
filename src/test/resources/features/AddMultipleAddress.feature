@@ -19,6 +19,6 @@ Feature: Address verification
 
     Examples:
       | PinCode | FirstName  | LastName | Address         | MobileNumber  |
-      | 600008   | Gresh      | K        | 5/7,New York    | 9876543210    |
-      | 641402   | Ajith      | Mon      | 6/34,Chicago    | 8765432109    |
+      | 600008   | Gresh      | K        | 5/7,New York ,North angel street ,usa   | 9876543210    |
+      | 641402   | Ajith      | Mon      | 6/34,Chicago ,south liberty street,usa  | 8765432109    |
       #| 641408  | Ajay       | sunil    | 9/23,San Diego  | 7654321098    | Home         |
