@@ -42,8 +42,9 @@ public class MyBagSteps extends BaseSteps{
         myBagPage.userIncreaseQuantity(ConfigurationManager.getConfigValues(quantity));
     }
 
-    @Then("verify the product price equal to quantity increase price")
+    @Then("the total product price should reflect the updated quantity")
     public void verifyTheProductPriceEqualToQuantityIncreasePrice() {
-        myBagPage.verifyProductPrice();
+        Assert.assertTrue(myBagPage.verifyProductPrice());
+        System.out.println("The price are verified");
     }
 }

@@ -12,6 +12,7 @@ Feature: Validate the product search and select filter
     When user enter search product "product.name"
     Then verify user on product page
 
+  @Web
   Scenario: verify all search details
     When the user can select filter option "Brand"
     And user select the "Puma" brand
@@ -19,6 +20,7 @@ Feature: Validate the product search and select filter
     And user select the "UK/IND-3.5" brand
     Then display the product details
 
+  @Android
   Scenario: Verify user can add and delete product in wish list
     When user add the product into wish list
     Then verify product added in wish list successfully

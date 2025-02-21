@@ -5,9 +5,6 @@ import com.tatacliq.utils.ConfigurationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class WebMyBagPage extends WebBasePage implements MyBagPage {
@@ -99,11 +96,11 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
             }
         }
         doneButton.click();
-
+        pause(5);
     }
 
     @Override
-    public void verifyProductPrice() {
+    public boolean verifyProductPrice() {
         String productPrice = ConfigurationManager.getConfigValues("product.price");
         productPrice = productPrice.replaceAll("[^0-9.]","");
         String process = ConfigurationManager.getConfigValues("product.processingfees");
@@ -116,10 +113,6 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
         int qty = Integer.parseInt(quantity);
         int expected_price = (int)Double.parseDouble(expected);
         int actualPrice = (product_price * qty)+process_fees;
-        System.out.println(product_price);
-        System.out.println(process_fees);
-        System.out.println(qty);
-        System.out.println(expected_price);
-        System.out.println(actualPrice);
+        return expected_price == actualPrice;
     }
 }

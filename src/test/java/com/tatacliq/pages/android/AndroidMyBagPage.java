@@ -64,8 +64,8 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
     }
 
     @Override
-    public void verifyProductPrice() {
-
+    public boolean verifyProductPrice() {
+        return true;
     }
 
 

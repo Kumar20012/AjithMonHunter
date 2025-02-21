@@ -13,5 +13,5 @@ public interface MyBagPage {
 
     void userIncreaseQuantity(String quantity);
 
-    void verifyProductPrice();
+    boolean verifyProductPrice();
 }
