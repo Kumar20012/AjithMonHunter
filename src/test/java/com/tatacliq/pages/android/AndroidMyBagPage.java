@@ -58,5 +58,15 @@ public class AndroidMyBagPage extends AndroidBasePage implements MyBagPage {
         backArrows.click();
     }
 
+    @Override
+    public void userIncreaseQuantity(String quantity) {
+
+    }
+
+    @Override
+    public void verifyProductPrice() {
+
+    }
+
 
 }

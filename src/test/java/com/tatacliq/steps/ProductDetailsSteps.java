@@ -37,5 +37,6 @@ public class ProductDetailsSteps extends BaseSteps {
 
     @And("the user click buy now button")
     public void theUserClickBuyNowButton() {
+        productDetailsPage.userClickBuyNowButton();
     }
 }

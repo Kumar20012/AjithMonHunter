@@ -14,7 +14,7 @@ Feature: Validate the product prices and coupons discounts
       Then verify user on product page
       When user click on the first product from product list
       And the user click buy now button
-      Then user verify the product price
-      When user increase the quantity of product to 3
-      Then verify the product
+      Then verify the user should be on the My Bag page
+      When user increase the quantity of product to "product.quantity"
+      Then verify the product price equal to quantity increase price
 

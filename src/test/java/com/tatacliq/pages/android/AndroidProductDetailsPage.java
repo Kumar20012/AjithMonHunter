@@ -45,4 +45,9 @@ public class AndroidProductDetailsPage extends AndroidBasePage implements Produc
         }
         feedbackBtn.click();
     }
+
+    @Override
+    public void userClickBuyNowButton() {
+
+    }
 }

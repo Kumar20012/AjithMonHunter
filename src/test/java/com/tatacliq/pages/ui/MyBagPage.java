@@ -10,4 +10,8 @@ public interface MyBagPage {
     void userEnterPinCodeDeliver(String pinCode);
 
     void removeMyBagProducts();
+
+    void userIncreaseQuantity(String quantity);
+
+    void verifyProductPrice();
 }
