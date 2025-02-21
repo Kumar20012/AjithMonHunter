@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebMyBagPage extends WebBasePage implements MyBagPage {
@@ -44,7 +45,7 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     @FindBy(xpath = "//div[text()='Bag Total']/following-sibling::div")
     WebElement productPrice;
 
-    @FindBy(xpath = "//div[@class='DesktopCheckout__shippingCharge']")
+    @FindBy(className = "DesktopCheckout__shippingCharge")
     WebElement processingFees;
 
 
@@ -87,7 +88,9 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     @Override
     public void userIncreaseQuantity(String quantity) {
         ConfigurationManager.setConfigValue("product.price",productPrice.getText());
-        ConfigurationManager.setConfigValue("product.processingfees",processingFees.getText());
+        String val = processingFees.getAttribute("innerText");
+        String firstValue = val.split("\\s+")[1];
+        ConfigurationManager.setConfigValue("product.processingfees",firstValue);
         qtyArrow.click();
         for(WebElement ele : quantityValue){
             if(ele.getText().equals(quantity)){
@@ -103,27 +106,20 @@ public class WebMyBagPage extends WebBasePage implements MyBagPage {
     public void verifyProductPrice() {
         String productPrice = ConfigurationManager.getConfigValues("product.price");
         productPrice = productPrice.replaceAll("[^0-9.]","");
-        String processFees = ConfigurationManager.getConfigValues("product.processingfees");
-        processFees = processFees.replaceAll("[^0-9.]","");
+        String process = ConfigurationManager.getConfigValues("product.processingfees");
+        process = process.replaceAll("[^0-9.]","");
         String quantity = ConfigurationManager.getConfigValues("product.quantity");
-        String expected= driver.findElement(By.xpath("//div[text()='Bag Subtotal']/following-sibling::div")).getText();
+        String expected= driver.findElement(By.xpath("//div[text()='Total']/following-sibling::div")).getText();
         expected = expected.replaceAll("[^0-9.]","");
-//        int product_price =(int) Double.parseDouble(productPrice);
-//        int  process_fees =(int) Double.parseDouble(processFees);
-//        int qty = Integer.parseInt(quantity);
-//        int expected_price = (int)Double.parseDouble(expected);
-//        int actualPrice = (product_price * qty)+process_fees;
-
-        System.out.println(productPrice);
-        System.out.println(processFees);
-        System.out.println(quantity);
-        System.out.println(expected);
+        int product_price =(int) Double.parseDouble(productPrice);
+        int  process_fees =(int) Double.parseDouble(process);
+        int qty = Integer.parseInt(quantity);
+        int expected_price = (int)Double.parseDouble(expected);
+        int actualPrice = (product_price * qty)+process_fees;
+        System.out.println(product_price);
+        System.out.println(process_fees);
+        System.out.println(qty);
+        System.out.println(expected_price);
+        System.out.println(actualPrice);
     }
-
-//    public static void main(String[] args) {
-//        String s = "$20.00";
-//        s = s.replaceAll("[^0-9.]", "");
-//        int d = (int)Double.parseDouble(s);
-//        System.out.println(d);
-//    }
 }
