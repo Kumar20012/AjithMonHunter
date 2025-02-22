@@ -38,6 +38,9 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(id="com.tul.tatacliq:id/closeButton")
     WebElement closeBtn;
 
+    @FindBy(id="com.tul.tatacliq:id/customerCareView")
+    WebElement customerCareBtn;
+
     @FindBy(id="com.tul.tatacliq:id/txtAddressBook")
     WebElement addressBtn;
 
@@ -135,5 +138,11 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     public void userClickAddressSubmit() {
         saveBtn.click();
     }
+
+    public void clickOnCustomerCareBtn(){
+        customerCareBtn.click();
+    }
+
+
 
 }

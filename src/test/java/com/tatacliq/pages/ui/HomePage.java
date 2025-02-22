@@ -13,4 +13,7 @@ public interface HomePage {
     void userFillAddressDetails(String PIN, String firstname, String lastname, String address, String number);
     void displayAddressDetails();
     void userClickAddressSubmit();
+    default void clickOnCustomerCareBtn(){
+
+    }
 }
