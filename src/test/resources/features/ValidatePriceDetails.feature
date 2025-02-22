@@ -13,6 +13,4 @@ Feature: Validate the product prices and coupons discounts
       When user increase the quantity of product to "product.quantity"
       Then the total product price should reflect the updated quantity
 
-    Scenario: Validate the Coupon discount apply or not
-
 

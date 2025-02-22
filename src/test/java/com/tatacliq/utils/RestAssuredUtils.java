@@ -69,7 +69,7 @@ public class RestAssuredUtils {
     }
 
     public static String getDataFromJsonFile(String fileName) throws FileNotFoundException {
-        String jsonFolderPath = "src/test/resources/data/";
+        String jsonFolderPath = "src/test/resources/apidata/";
         Scanner sc = new Scanner(new FileInputStream(jsonFolderPath + fileName));
         String body = sc.useDelimiter("\\Z").next();
         return body;

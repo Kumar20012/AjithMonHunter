@@ -19,4 +19,5 @@ public class CouponPageSteps extends BaseSteps {
     public void a_valid_coupon_is_available_the_user_applies_it() {
         couponPage.userApplyCoupon();
     }
+
 }
