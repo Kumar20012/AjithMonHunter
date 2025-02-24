@@ -75,4 +75,14 @@ public class ProductPageSteps extends BaseSteps {
     public void userAddTheProductIntoWishList() {
         productPage.userClickWishListBtn();
     }
+
+    @When("the user click expand button")
+    public void theUserClickExpandButton() {
+        productPage.userClickExpandBtn();
+    }
+
+    @Then("verify the button is working")
+    public void verifyTheButtonIsWorking() {
+        Assert.assertTrue(productPage.verifyExpandButton());
+    }
 }

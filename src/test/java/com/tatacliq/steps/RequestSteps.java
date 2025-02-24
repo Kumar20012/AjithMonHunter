@@ -51,7 +51,7 @@ public class RequestSteps {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = null;
         try {
-            jsonNode = objectMapper.readTree(new File("src/test/resources/create_user.json"));
+            jsonNode = objectMapper.readTree(new File("src/test/resources/apidata/create_user.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

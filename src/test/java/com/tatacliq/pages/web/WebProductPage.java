@@ -4,12 +4,15 @@ import com.tatacliq.pages.ui.ProductPage;
 import com.tatacliq.utils.ConfigurationManager;
 import com.tatacliq.utils.ExcelUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WebProductPage extends WebBasePage implements ProductPage {
 
@@ -44,6 +47,12 @@ public class WebProductPage extends WebBasePage implements ProductPage {
 
     @FindBy(className = "ProductModule__base")
     List<WebElement> dummyProductList;
+
+    @FindBy(xpath = "//div[@class=\"ProductModule__dummyDiv\"]")
+    List<WebElement> productFrame;
+
+    @FindBy(xpath = "//div[@class='Plp__icon']//div/div")
+    WebElement expandButton;
 
 
     public boolean verifyUserOnProductPage() {
@@ -143,5 +152,34 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         switchToSecondWindow(driver);
     }
 
+
+    public Map<String, Integer> userClickExpandBtn(){
+        Dimension dimensions = productFrame.get(1).getSize();
+        int width = dimensions.getWidth();
+        int height = dimensions.getHeight();
+
+        expandButton.click();
+
+        Dimension dimensions1 = productFrame.get(1).getSize();
+        int width1= dimensions1.getWidth();
+        int height1 = dimensions1.getHeight();
+
+        Map<String, Integer> dimensionData = new HashMap<>();
+        dimensionData.put("oldWidth", width);
+        dimensionData.put("oldHeight", height);
+        dimensionData.put("newWidth", width1);
+        dimensionData.put("newHeight", height1);
+
+        return dimensionData;
+    }
+
+    public boolean verifyExpandButton(){
+        Map<String, Integer> dimensions = userClickExpandBtn();
+        int oldWidth = dimensions.get("oldWidth");
+        int oldHeight = dimensions.get("oldHeight");
+        int newWidth = dimensions.get("newWidth");
+        int newHeight = dimensions.get("newHeight");
+        return (newWidth< oldWidth) && (newHeight<oldHeight) && (newWidth==203) && (newHeight==444);
+    }
 
 }

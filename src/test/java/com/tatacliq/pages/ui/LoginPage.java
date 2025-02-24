@@ -6,7 +6,7 @@ public interface LoginPage {
 
     boolean checkContinueButton();
 
-     void userEnterMobileNumber(String number) ;
+    void userEnterMobileNumber(String number) ;
 
     void userClickContinueButton();
 

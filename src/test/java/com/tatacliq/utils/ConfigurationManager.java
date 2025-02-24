@@ -30,14 +30,6 @@ public class ConfigurationManager {
         properties.setProperty(key, value);
     }
 
-    public static void loadProperties(String data) {
-        try (InputStream input = new FileInputStream("src/test/resources/configuration/config.properties")) {
-            properties.store(input);
-        } catch (IOException e) {
-            System.err.println("Warning: Unable to load config.properties. A new one will be created if needed.");
-        }
-    }
-
     public static byte[] attachScreenShot(WebDriver driver){
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         return takesScreenshot.getScreenshotAs(OutputType.BYTES);
