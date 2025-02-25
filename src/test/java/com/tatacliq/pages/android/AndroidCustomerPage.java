@@ -17,13 +17,16 @@ public class AndroidCustomerPage extends AndroidBasePage implements CustomerPage
     WebElement helpBtn;
 
     String ISSUE_XPATH="//android.widget.TextView[@resource-id='com.tul.tatacliq:id/tv_issues_type_title' and @text='%s']";
+
     @FindBy(id="com.tul.tatacliq:id/tv_issues_title")
     List<WebElement> queryList;
 
     @FindBy(id="com.tul.tatacliq:id/txtContactUs")
     WebElement contactUsBtn;
+
     @FindBy(xpath = "//android.widget.TextView[@text=\"Write to us / Raise a complaint\"]")
     WebElement raiseComplaintOption;
+
     @FindBy(xpath = "//android.widget.EditText[@text='Enter the name of the product']")
     WebElement nameInput;
     @FindBy(xpath = "//android.widget.EditText[@text='Copy paste the product page URL']")

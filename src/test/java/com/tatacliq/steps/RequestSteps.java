@@ -31,6 +31,14 @@ public class RequestSteps {
 
     @Given("user wants to call {string} end point")
     public void userWantsToCallEndPoint(String endPoint) {
+        RestAssuredUtils.clear();
+        if (endPoint.contains("@name")&& endPoint.contains("@pass")) {
+            endPoint = endPoint.replace("@pass", ConfigurationManager.getConfigValues("user.password"));
+            endPoint = endPoint.replace("@name", ConfigurationManager.getConfigValues("user.name"));
+        } else if (endPoint.contains("@user")) {
+            System.out.println(ConfigurationManager.getConfigValues("username"));
+            endPoint = endPoint.replaceAll("@user",ConfigurationManager.getConfigValues("username"));
+        }
         RestAssuredUtils.setEndPoint(endPoint);
     }
 
@@ -46,16 +54,17 @@ public class RequestSteps {
 
     }
 
-    @When("get the user name from json file")
-    public void getTheUserNameFromJsonFile() {
+    @When("get the data {string} from json file {string}")
+    public void getTheUserNameFromJsonFile(String data, String fileName) {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = null;
         try {
-            jsonNode = objectMapper.readTree(new File("src/test/resources/apidata/create_user.json"));
+            jsonNode = objectMapper.readTree(new File("src/test/resources/apidata/"+fileName));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        String name = jsonNode.get("username").asText();
-        ConfigurationManager.setConfigValue("username",name);
+        String name = jsonNode.get(data).asText();
+        ConfigurationManager.setConfigValue(data,name);
+        System.out.println(ConfigurationManager.getConfigValues(data));
     }
 }

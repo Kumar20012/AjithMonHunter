@@ -9,10 +9,10 @@ Feature: Validate the product search and select filter
     Then verify the number is valid
     And click continue button
     Then verify user on home page
-    When user enter search product "product.name"
+    When user enter search product "product.shoe"
     Then verify user on product page
 
-  @Web
+  @web
   Scenario: verify all search details
     When the user can select filter option "Brand"
     And user select the "Puma" brand

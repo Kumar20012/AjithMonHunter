@@ -65,7 +65,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         for (int i = 0; i < listOfProduct.size(); i++) {
             String title = listOfProduct.get(i).getText();
             String price = listOfPrice.get(i).getText();
-            ExcelUtils.addProductData(productData, title, price);
+            ExcelUtils.addProductData(productData, title);
         }
         String filePath = "ProductDetails.xlsx";
         ExcelUtils.writeDataToExcel(productData, filePath);

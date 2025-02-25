@@ -1,3 +1,4 @@
+@web @android
 Feature: Validate contact us functionality
   Background:
     Given user open application "MEN"

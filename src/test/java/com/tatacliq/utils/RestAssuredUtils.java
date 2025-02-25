@@ -3,7 +3,6 @@ package com.tatacliq.utils;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -75,11 +74,25 @@ public class RestAssuredUtils {
         return body;
     }
 
+    public static boolean FiledNameIsAvailable(String fieldName) {
+        try{
+            String value = RestAssuredUtils.getResponseFieldValue(fieldName);
+            System.out.println(value);
+            return value!=null && !value.isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public static String getResponseFieldValue(String jsonPath){
         return response.jsonPath().getString(jsonPath);
     }
 
     public static void clear() {
         reqSpecification = RestAssured.given();
+    }
+
+    public static Response getResponse(){
+        return response;
     }
 }
