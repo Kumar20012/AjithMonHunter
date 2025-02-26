@@ -9,7 +9,7 @@ import java.util.List;
 
 public class WebMyBagPage extends WebBasePage implements MyBagPage {
 
-    @FindBy(xpath = "//span[text()='Checkout']")
+    @FindBy(xpath = "//span[text()='Checkout']/..")
     WebElement checkoutBtn;
 
     @FindBy(xpath = "//div[@class='Coupon__apply']/div/div")

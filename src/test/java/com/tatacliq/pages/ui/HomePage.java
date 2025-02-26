@@ -9,7 +9,9 @@ public interface HomePage {
 
     void userOpenApplication(String val);
 
-    void userClickMyAccountIcon();
+    default void userClickMyAccountIcon(){
+
+    };
 
     void userClickLogoutButton();
 
@@ -21,7 +23,7 @@ public interface HomePage {
 
     void userClickAddressSubmit();
 
-    default void clickOnCustomerCareBtn(){
+     void clickOnCustomerCareBtn();
 
-    }
+
 }

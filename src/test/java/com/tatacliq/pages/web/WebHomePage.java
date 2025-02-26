@@ -54,9 +54,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(className = "LogoutButton__menuIconLogOut")
     WebElement logoutBtn;
 
-    @FindBy(xpath = "//div[@class='AddressBook__name']")
+    @FindBy(xpath = "//div[text()='CLiQ Care']")
+    WebElement cliqCareButton;
 
-    String X_path_home_office="//div[text()='%s']/div/div";
 
     public void userOpenApplication(String val) {
         driver.get(ConfigurationManager.getConfigValues("application.url"));
@@ -117,6 +117,12 @@ public class WebHomePage extends WebBasePage implements HomePage {
             System.out.println("-----------------------------------------------------------");
         }
         newAddressAdd.click();
+    }
+
+
+    public void clickOnCustomerCareBtn(){
+        moveToElement(searchBar);
+        click(cliqCareButton);
     }
 
 

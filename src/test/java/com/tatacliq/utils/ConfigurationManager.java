@@ -34,4 +34,12 @@ public class ConfigurationManager {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         return takesScreenshot.getScreenshotAs(OutputType.BYTES);
     }
+
+    public static void setObject(String key ,Object obj){
+        properties.put(key, obj);
+    }
+
+    public static Object getObject(String key){
+       return properties.get(key);
+    }
 }

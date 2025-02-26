@@ -27,6 +27,7 @@ public class BaseSteps {
             productPage = new WebProductPage();
             productDetailsPage= new WebProductDetailsPage();
             feedbackPage=new WebFeedbackPage();
+            customerPage = new WebCustomerPage();
         } else {
             checkOutPage = new AndroidCheckOutPage();
             couponPage = new AndroidCouponPage();

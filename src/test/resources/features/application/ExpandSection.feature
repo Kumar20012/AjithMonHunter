@@ -1,4 +1,4 @@
-@web @android
+@web
 Feature: Validate the expand Button
   Scenario: verify expand is working
     Given user open application "MEN"

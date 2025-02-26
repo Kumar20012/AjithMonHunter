@@ -8,6 +8,6 @@ Feature: Validate the user can logout
     Then verify the number is valid
     And click continue button
     Then verify user on home page
-    When  user click my account icon
+    When user click my account icon
     And user click on logout button
     Then verify user on home page

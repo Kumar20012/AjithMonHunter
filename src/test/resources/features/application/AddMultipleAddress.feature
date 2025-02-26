@@ -9,6 +9,7 @@ Feature: Address verification
     And click continue button
     Then verify user on home page
 
+  @web @android
   Scenario Outline: verify multiple address
     When  user click my account icon
     And user navigate to the address input page
