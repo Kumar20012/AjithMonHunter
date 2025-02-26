@@ -1,14 +1,19 @@
 package com.tatacliq.steps;
 
+import com.tatacliq.pojo.OrderPetStore;
 import com.tatacliq.utils.ConfigurationManager;
 import com.tatacliq.utils.RestAssuredUtils;
+import io.cucumber.core.internal.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.JsonNode;
 import io.cucumber.core.internal.com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class RequestSteps {
@@ -66,5 +71,19 @@ public class RequestSteps {
         String name = jsonNode.get(data).asText();
         ConfigurationManager.setConfigValue(data,name);
         System.out.println(ConfigurationManager.getConfigValues(data));
+    }
+
+    @And("set request body from using pojo {string}")
+    public void setRequestBodyFromUsingPojo(String fileName) throws Exception {
+       String bodyData = RestAssuredUtils.getDataFromJsonFile(fileName);
+       ObjectMapper objectMapper = new ObjectMapper();
+       OrderPetStore requestPojo = objectMapper.readValue(bodyData, OrderPetStore.class);
+       RestAssuredUtils.setBody(requestPojo);
+       ConfigurationManager.setObject("order_request",requestPojo);
+    }
+
+    @And("set path param {string} to {string}")
+    public void setPathParamTo(String key, String value) {
+        RestAssuredUtils.setPathParam(key, ConfigurationManager.getConfigValues(value));
     }
 }

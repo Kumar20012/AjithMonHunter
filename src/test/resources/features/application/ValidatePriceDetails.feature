@@ -1,3 +1,4 @@
+@web @android
 Feature: Validate the product prices and coupons discounts
   Background:
     Given user open application "MEN"

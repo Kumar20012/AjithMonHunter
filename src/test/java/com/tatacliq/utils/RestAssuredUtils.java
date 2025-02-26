@@ -95,4 +95,9 @@ public class RestAssuredUtils {
     public static Response getResponse(){
         return response;
     }
+
+
+    public static void setPathParam(String key , String val){
+        reqSpecification.pathParam(key,val);
+    }
 }

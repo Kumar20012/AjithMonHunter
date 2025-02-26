@@ -20,7 +20,7 @@ Feature: Validate the product search and select filter
     And user select the "UK/IND-3.5" brand
     Then display the product details
 
-  @Android
+  @android
   Scenario: Verify user can add and delete product in wish list
     When user add the product into wish list
     Then verify product added in wish list successfully
