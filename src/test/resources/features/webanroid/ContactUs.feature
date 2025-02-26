@@ -45,6 +45,4 @@ Scenario Outline: Verify user can raise multiple tickets on one particular issue
   |I am unable to place an order               |
   |I am getting pricing error                  |
   |Report content error                        |
-  |Unsubscribe from promotional emails         |
-  |I want to update/ edit my personal details  |
 

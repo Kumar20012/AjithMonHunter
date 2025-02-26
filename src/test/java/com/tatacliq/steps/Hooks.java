@@ -9,7 +9,7 @@ import io.restassured.RestAssured;
 
 public class Hooks {
 
-    @Before("@web or @android")
+    @Before
     public void setUp(){
         ConfigurationManager.initializeConfigReader();
         DriverManager.createDriver();
