@@ -20,7 +20,7 @@ public class WebFeedbackPage extends WebBasePage implements FeedbackPage {
     @FindBy(className = "ContinueFeedback__exitAndSubmitButton")
     WebElement exitBtn;
 
-    String RATING_XPATH="(//div[contains(@class ,'FeedbackExperienceForm__emojis_imgClass FeedbackExperienceForm__emoji_%s FeedbackExperienceForm__emoji')])";
+    String RATING_XPATH = "(//div[contains(@class ,'FeedbackExperienceForm__emojis_imgClass FeedbackExperienceForm__emoji_%s FeedbackExperienceForm__emoji')])";
 
     @Override
     public boolean isFeedbackPageDisplayed() {

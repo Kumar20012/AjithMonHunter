@@ -6,12 +6,14 @@ Feature: Validate the login functionality
     When  user click login button
     Then  verify user on login page
 
+  @web @android
   Scenario: Verify user can login successfully
     When user enter phone number "mobile.number"
     Then verify the number is valid
     And  click continue button
     Then verify user on home page
 
+  @web @android
   Scenario Outline: Verify user can not login with invalid number
     When user fill invalid numbers "<invalid.number>"
     Then verify the number is Invalid

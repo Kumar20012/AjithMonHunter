@@ -1,5 +1,5 @@
-@web @android
 Feature: Validate that the user can purchase a product
+  @web @android
   Scenario: Verify the product purchase process
     Given user open application "MEN"
     Then verify user on home page

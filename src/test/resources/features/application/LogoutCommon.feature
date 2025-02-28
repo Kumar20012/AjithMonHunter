@@ -1,4 +1,5 @@
 Feature: Validate the user can logout
+  @web @android
   Scenario: verify user can logout on android
     Given user open application "MEN"
     Then  verify user on home page

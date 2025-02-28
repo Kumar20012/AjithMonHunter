@@ -1,5 +1,5 @@
 Feature: Validate user can submit feedback about products
-
+  @web @android
   Scenario: Verify user can give product feedback successfully
     Given user open application "MEN"
     Then verify user on home page

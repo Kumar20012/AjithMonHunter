@@ -12,10 +12,10 @@ import java.util.List;
 
 public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"My Account\"]")
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='My Account']")
     WebElement myAccount;
 
-    @FindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Login\"]")
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Login']")
     WebElement loginBtn;
 
     @FindBy(id = "com.tul.tatacliq:id/tvProminentSearch")
@@ -30,18 +30,16 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
     @FindBy(id = "com.tul.tatacliq:id/btnLogout")
     WebElement logoutButton;
 
-    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView[@resource-id=\"com.tul.tatacliq:id/composeNewHome\"]/android.view.View/android.view.View[3]/android.view.View[2]")
+    @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView[@resource-id='com.tul.tatacliq:id/composeNewHome']/android.view.View/android.view.View[3]/android.view.View[2]")
     WebElement welcomePageVerify;
 
-    String x_path = "//androidx.compose.ui.platform.ComposeView[@resource-id=\"com.tul.tatacliq:id/composeNewHome\"]/android.view.View/android.view.View[3]/android.view.View[%s]";
-
-    @FindBy(id="com.tul.tatacliq:id/closeButton")
+    @FindBy(id = "com.tul.tatacliq:id/closeButton")
     WebElement closeBtn;
 
-    @FindBy(id="com.tul.tatacliq:id/customerCareView")
+    @FindBy(id = "com.tul.tatacliq:id/customerCareView")
     WebElement customerCareBtn;
 
-    @FindBy(id="com.tul.tatacliq:id/txtAddressBook")
+    @FindBy(id = "com.tul.tatacliq:id/txtAddressBook")
     WebElement addressBtn;
 
     @FindBy(xpath = "//android.widget.TextView[@text='Add Shipping Address']")
@@ -49,27 +47,35 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     @FindBy(id = "com.tul.tatacliq:id/edtfirstName")
     WebElement firstName;
+
     @FindBy(id = "com.tul.tatacliq:id/edtLastName")
     WebElement lastName;
+
     @FindBy(id = "com.tul.tatacliq:id/edtAddress")
     WebElement addressType;
+
     @FindBy(id = "com.tul.tatacliq:id/edtPincode")
     WebElement enterPIN;
+
     @FindBy(id = "com.tul.tatacliq:id/edtPhoneNumber")
     WebElement phoneNumber;
+
     @FindBy(id = "com.tul.tatacliq:id/btnSave")
     WebElement saveBtn;
 
     @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.TextView")
-    List<WebElement>addressList;
+    List<WebElement> addressList;
 
-    public void userOpenApplication(String val){
-        WebElement category = driver.findElement(By.xpath(String.format(x_path,val)));
+    String x_path = "//androidx.compose.ui.platform.ComposeView[@resource-id='com.tul.tatacliq:id/composeNewHome']/android.view.View/android.view.View[3]/android.view.View[%s]";
+
+    @Override
+    public void userOpenApplication(String val) {
+        WebElement category = driver.findElement(By.xpath(String.format(x_path, val)));
         category.click();
         closeBtn.click();
     }
 
-
+    @Override
     public boolean verifyUserOnHomePage() {
         try {
             return searchBar.isDisplayed();
@@ -78,25 +84,29 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         }
     }
 
-     public void clickOnLoginButton(){
+    @Override
+    public void clickOnLoginButton() {
         loginBtn.click();
     }
 
-    public void userEnterSearchProduct(String productName){
+    @Override
+    public void userEnterSearchProduct(String productName) {
         pause(10);
         searchBar.click();
         searchText.sendKeys(productName);
         driver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
-    public void userClickMyAccountIcon(){
+    @Override
+    public void userClickMyAccountIcon() {
         myAccount.click();
     }
 
-    public void userClickLogoutButton(){
+    @Override
+    public void userClickLogoutButton() {
         logoutArrow.click();
         pause(3);
-        while (!isDisplayedCheck(logoutButton)){
+        while (!isDisplayedCheck(logoutButton)) {
             scrollPage();
         }
         logoutButton.click();
@@ -119,7 +129,7 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         scroll(addressType);
         enterPIN.click();
         enterPIN.sendKeys(PIN);
-        while (!isDisplayedCheck(phoneNumber)){
+        while (!isDisplayedCheck(phoneNumber)) {
             scroll(enterPIN);
         }
         phoneNumber.click();
@@ -128,7 +138,7 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
 
     @Override
     public void displayAddressDetails() {
-        for(WebElement data : addressList){
+        for (WebElement data : addressList) {
             System.out.println(data.getText());
         }
         addDetailsBtn.click();
@@ -139,10 +149,10 @@ public class AndroidHomePage extends AndroidBasePage implements HomePage {
         saveBtn.click();
     }
 
-    public void clickOnCustomerCareBtn(){
+    @Override
+    public void clickOnCustomerCareBtn() {
         customerCareBtn.click();
     }
-
 
 
 }

@@ -1,5 +1,4 @@
 Feature: Validate the product search and select filter
-
   Background:
     Given user open application "MEN"
     Then verify user on home page
@@ -12,7 +11,7 @@ Feature: Validate the product search and select filter
     When user enter search product "product.shoe"
     Then verify user on product page
 
-  @web
+  @web @android
   Scenario: verify all search details
     When the user can select filter option "Brand"
     And user select the "Puma" brand

@@ -8,23 +8,24 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidFeedbackPage extends AndroidBasePage implements FeedbackPage {
 
-    @FindBy(id="com.tul.tatacliq:id/tv_submit")
+    @FindBy(id = "com.tul.tatacliq:id/tv_submit")
     WebElement submitBtn;
 
-    @FindBy(id="com.tul.tatacliq:id/comments_textbox")
+    @FindBy(id = "com.tul.tatacliq:id/comments_textbox")
     WebElement textBox;
 
-    @FindBy(id="com.tul.tatacliq:id/button_saveAndExit")
+    @FindBy(id = "com.tul.tatacliq:id/button_saveAndExit")
     WebElement exitBtn;
 
-    String RATING_XPATH ="(//android.widget.ImageView[@resource-id='com.tul.tatacliq:id/iv_emoji_%s'])";
+    String RATING_XPATH = "(//android.widget.ImageView[@resource-id='com.tul.tatacliq:id/iv_emoji_%s'])";
 
-    public boolean isFeedbackPageDisplayed(){
+    @Override
+    public boolean isFeedbackPageDisplayed() {
         return submitBtn.isDisplayed();
-
     }
 
-    public void userFillRatings(){
+    @Override
+    public void userFillRatings() {
         for (int i = 1; i <= 5; i++) {
             String ratingXpath = String.format(RATING_XPATH, ConfigurationManager.getConfigValues("rate.star")) + "[" + i + "]";
             WebElement rate = driver.findElement(By.xpath(ratingXpath));
@@ -32,11 +33,14 @@ public class AndroidFeedbackPage extends AndroidBasePage implements FeedbackPage
         }
     }
 
-    public void userFillFeedback(){
+    @Override
+    public void userFillFeedback() {
         scrollPage();
         textBox.sendKeys(ConfigurationManager.getConfigValues("fill.feedback"));
     }
-    public void userClickSubmitButton(){
+
+    @Override
+    public void userClickSubmitButton() {
         submitBtn.click();
     }
 

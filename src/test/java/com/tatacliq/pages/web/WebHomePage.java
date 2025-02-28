@@ -12,7 +12,7 @@ import java.util.List;
 
 public class WebHomePage extends WebBasePage implements HomePage {
 
-    @FindBy(id="search-text-input")
+    @FindBy(id = "search-text-input")
     WebElement searchBar;
 
     @FindBy(xpath = "//div[text()='Sign in / Sign Up']")
@@ -33,7 +33,7 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//input[@placeholder='Last Name*']")
     WebElement lastName;
 
-    @FindBy(xpath = "//div[@class=\"TextArea__container\"]/textarea")
+    @FindBy(xpath = "//div[@class='TextArea__container']/textarea")
     WebElement addressType;
 
     @FindBy(xpath = "//input[@placeholder='Phone number(Required)*']")
@@ -42,7 +42,7 @@ public class WebHomePage extends WebBasePage implements HomePage {
     @FindBy(xpath = "//span[contains(text(), 'Save & Continue')]/..")
     WebElement saveContinueButton;
 
-    @FindBy(xpath = "//div[@class=\"AddressBook__addressHolder\"]")
+    @FindBy(xpath = "//div[@class='AddressBook__addressHolder']")
     List<WebElement> addressDetails;
 
     @FindBy(id = "wzrk-cancel")
@@ -58,41 +58,47 @@ public class WebHomePage extends WebBasePage implements HomePage {
     WebElement cliqCareButton;
 
 
+    @Override
     public void userOpenApplication(String val) {
         driver.get(ConfigurationManager.getConfigValues("application.url"));
         askLater.click();
     }
 
-    public boolean verifyUserOnHomePage(){
+    @Override
+    public boolean verifyUserOnHomePage() {
         return searchBar.isDisplayed();
     }
 
-    public void clickOnLoginButton(){
+    @Override
+    public void clickOnLoginButton() {
         signUpBtn.click();
     }
 
-
-    public void userEnterSearchProduct(String productName){
+    @Override
+    public void userEnterSearchProduct(String productName) {
         pause(5);
         searchBar.click();
-        searchBar.sendKeys(productName+Keys.ENTER);
+        searchBar.sendKeys(productName + Keys.ENTER);
     }
 
-    public void userClickMyAccountIcon(){
+    @Override
+    public void userClickMyAccountIcon() {
         moveToElement(myProfile);
     }
 
-    public void userClickLogoutButton(){
+    @Override
+    public void userClickLogoutButton() {
         logoutBtn.click();
     }
 
-
-    public void navigateAddressInput(){
+    @Override
+    public void navigateAddressInput() {
         driver.findElement(By.xpath("//div[text()='My account']")).click();
         addressButton.click();
     }
 
-    public void userFillAddressDetails(String PIN,String firstname,String lastname,String address, String number){
+    @Override
+    public void userFillAddressDetails(String PIN, String firstname, String lastname, String address, String number) {
         enterPIN.click();
         enterPIN.sendKeys(PIN);
         firstName.click();
@@ -110,8 +116,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
         saveContinueButton.click();
     }
 
-    public void displayAddressDetails(){
-        for(WebElement data : addressDetails){
+    @Override
+    public void displayAddressDetails() {
+        for (WebElement data : addressDetails) {
             System.out.println("--------------------Address--------------------------------");
             System.out.println(data.getText());
             System.out.println("-----------------------------------------------------------");
@@ -119,11 +126,9 @@ public class WebHomePage extends WebBasePage implements HomePage {
         newAddressAdd.click();
     }
 
-
-    public void clickOnCustomerCareBtn(){
+    @Override
+    public void clickOnCustomerCareBtn() {
         moveToElement(searchBar);
         click(cliqCareButton);
     }
-
-
 }

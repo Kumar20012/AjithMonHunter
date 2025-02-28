@@ -15,7 +15,7 @@ import org.junit.Assert;
 public class LoginPageSteps extends BaseSteps {
 
     @When("user enter phone number {string}")
-    public void user_enter_phone_number(String number)  {
+    public void user_enter_phone_number(String number) {
         loginPage.userEnterMobileNumber(ConfigurationManager.getConfigValues(number));
     }
 
@@ -38,7 +38,6 @@ public class LoginPageSteps extends BaseSteps {
     public void verifyUserOnLoginPage() {
         Assert.assertTrue(loginPage.verifyUserOnLoginPage());
     }
-
 
     @When("user fill invalid numbers {string}")
     public void userFillInvalidNumbers(String number) {

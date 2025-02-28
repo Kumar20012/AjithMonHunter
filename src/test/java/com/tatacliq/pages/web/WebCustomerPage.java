@@ -13,28 +13,28 @@ public class WebCustomerPage extends WebBasePage implements CustomerPage {
     @FindBy(xpath = "//div[text()='Shopping']")
     WebElement allText;
 
-    @FindBy(xpath = "//ul[@class=\"CustomerIssue__listGroup\"]/li")
+    @FindBy(xpath = "//ul[@class='CustomerIssue__listGroup']/li")
     List<WebElement> issueList;
 
-    @FindBy(xpath = "//div[@class=\"CustomerIssue__contactUsBtn\"]//span")
+    @FindBy(xpath = "//div[@class='CustomerIssue__contactUsBtn']//span")
     WebElement contactUsBtn;
 
-    @FindBy(xpath = "//div[@class=\"Button__base\"]")
+    @FindBy(xpath = "//div[@class='Button__base']")
     WebElement raiseCompliantButton;
 
-    @FindBy(xpath = "//div[@class=\"CustomerIssue__header\"]")
+    @FindBy(xpath = "//div[@class='CustomerIssue__header']")
     WebElement customerPageVerify;
 
-    @FindBy(xpath = "//div[@class=\"Button__base\"]/span")
+    @FindBy(xpath = "//div[@class='Button__base']/span")
     WebElement nextBtn;
 
-    @FindBy(xpath = "//input[@placeholder=\"Enter the name of the product\"]")
+    @FindBy(xpath = "//input[@placeholder='Enter the name of the product']")
     WebElement nameInput;
 
-    @FindBy(xpath = "//input[@placeholder=\"Copy paste the product page URL\"]")
+    @FindBy(xpath = "//input[@placeholder='Copy paste the product page URL']")
     WebElement urlInput;
 
-    @FindBy(xpath = "//textarea[@placeholder=\"Please describe your concern...\"]")
+    @FindBy(xpath = "//textarea[@placeholder='Please describe your concern...']")
     WebElement commentInput;
 
     @FindBy(id = "fileinput")
@@ -48,13 +48,13 @@ public class WebCustomerPage extends WebBasePage implements CustomerPage {
     String x_path_select = "//div[text()='%s']";
 
     @Override
-    public boolean isCustomerPageDisplayed(){
+    public boolean isCustomerPageDisplayed() {
         return allText.isDisplayed();
     }
 
     @Override
     public void userSelectIssueType(String value) {
-        WebElement ele = driver.findElement(By.xpath(String.format(x_path_select,value)));
+        WebElement ele = driver.findElement(By.xpath(String.format(x_path_select, value)));
         click(ele);
     }
 
@@ -81,14 +81,14 @@ public class WebCustomerPage extends WebBasePage implements CustomerPage {
 
     @Override
     public void userFillProblemDetails() {
-        if(isDisplayedCheck(nameInput) && isDisplayedCheck(urlInput)){
+        if (isDisplayedCheck(nameInput) && isDisplayedCheck(urlInput)) {
             nameInput.click();
             nameInput.sendKeys(ConfigurationManager.getConfigValues("name.input"));
             urlInput.click();
             urlInput.sendKeys(ConfigurationManager.getConfigValues("url.input"));
             commentInput.click();
             commentInput.sendKeys(ConfigurationManager.getConfigValues("comment.input"));
-        }else{
+        } else {
             commentInput.click();
             commentInput.sendKeys(ConfigurationManager.getConfigValues("comment.input"));
         }
@@ -98,7 +98,7 @@ public class WebCustomerPage extends WebBasePage implements CustomerPage {
 
     @Override
     public void uploadAttachment() {
-        attachFile.sendKeys(System.getProperty("user.dir")+"\\src\\test\\resources\\file\\Screen.jpeg");
+        attachFile.sendKeys(System.getProperty("user.dir") + "\\src\\test\\resources\\file\\Screen.jpeg");
         click(nextBtn);
     }
 
@@ -109,7 +109,7 @@ public class WebCustomerPage extends WebBasePage implements CustomerPage {
 
     @Override
     public void userSelectVariousTicketOptions(String value) {
-        WebElement ele = driver.findElement(By.xpath(String.format(Ticket_path,value)));
+        WebElement ele = driver.findElement(By.xpath(String.format(Ticket_path, value)));
         click(ele);
     }
 }

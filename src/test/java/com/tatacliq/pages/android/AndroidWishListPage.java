@@ -9,27 +9,31 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class AndroidWishListPage extends AndroidBasePage implements WishListPage {
+
     @FindBy(xpath = "//androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[2]/android.view.View")
     List<WebElement>wishListItems;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"remove\"]")
+
+    @FindBy(xpath = "//android.view.View[@content-desc='remove']")
     List<WebElement> deleteBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Continue Shopping']")
-    WebElement continueShopBtn;
-
+    @Override
     public boolean isProductAddedInWishList(){
-        for(WebElement ele:wishListItems){;
+        for(WebElement ele:wishListItems){
             if(ele.findElement(By.xpath(".//android.view.View/android.widget.TextView")).getText().equals(ConfigurationManager.getConfigValues("first.brand"))){
                 return true;
             }
         }
         return !wishListItems.isEmpty();
     }
+
+    @Override
     public void deleteProductFromWishList(){
         for (WebElement ele:deleteBtn){
             ele.click();
         }
     }
+
+    @Override
     public boolean isProductDeletedSuccessfully() {
     return wishListItems.isEmpty();
     }

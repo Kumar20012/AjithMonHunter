@@ -9,7 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class MyBagSteps extends BaseSteps{
+public class MyBagSteps extends BaseSteps {
 
     @Then("verify the user should be on the My Bag page")
     public void verify_the_user_should_be_on_the_my_bag_page() {

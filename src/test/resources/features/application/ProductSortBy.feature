@@ -1,3 +1,4 @@
+@web @android
 Feature: Validate sort by functionality on products
 
   Background:
@@ -5,7 +6,6 @@ Feature: Validate sort by functionality on products
     Then verify user on home page
     When user enter search product "product.name"
     Then verify user on product page
-
 
   Scenario: Verify user sort products by prices from low to high
     And the user selects the Sort by option and chooses "Price Low to High"

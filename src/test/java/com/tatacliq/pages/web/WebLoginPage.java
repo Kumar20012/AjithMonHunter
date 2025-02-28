@@ -8,30 +8,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
-public class WebLoginPage extends WebBasePage implements LoginPage{
-    @FindBy(id="mobileNumber")
+public class WebLoginPage extends WebBasePage implements LoginPage {
+    @FindBy(id = "mobileNumber")
     WebElement numberInputBar;
 
-    @FindBy(id="continueBtn")
+    @FindBy(id = "continueBtn")
     WebElement continueBtn;
 
     @FindBy(xpath = "//button[@class='mobile-number-login__btnPrimary']")
     WebElement otpContinueBtn;
 
-
-    public boolean verifyUserOnLoginPage(){
+    @Override
+    public boolean verifyUserOnLoginPage() {
         return numberInputBar.isDisplayed();
     }
+
+    @Override
     public void userEnterMobileNumber(String number) {
         numberInputBar.click();
         numberInputBar.sendKeys(number);
     }
 
-    public boolean checkContinueButton(){
+    @Override
+    public boolean checkContinueButton() {
         return continueBtn.isEnabled();
     }
 
-
+    @Override
     public void userClickContinueButton() {
         continueBtn.click();
         pause(15);

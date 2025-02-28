@@ -7,25 +7,24 @@ import org.openqa.selenium.support.FindBy;
 
 public class WebProductDetailsPage extends WebBasePage implements ProductDetailsPage {
 
-     @FindBy(xpath = "//span[text()='BUY NOW']")
-     WebElement buyNowBtn ;
+    @FindBy(xpath = "//span[text()='BUY NOW']")
+    WebElement buyNowBtn;
 
-     @FindBy(xpath = "//span[text()='ADD TO BAG']")
-     WebElement addToBagBtn;
+    @FindBy(xpath = "//span[text()='ADD TO BAG']")
+    WebElement addToBagBtn;
 
-     @FindBy(xpath = "//div[@class='DesktopHeader__myBagShow']/span")
-     WebElement cartQty;
+    @FindBy(xpath = "//div[@class='DesktopHeader__myBagShow']/span")
+    WebElement cartQty;
 
-     @FindBy(className = "DesktopHeader__myBagShow")
-     WebElement cartBtn;
+    @FindBy(className = "DesktopHeader__myBagShow")
+    WebElement cartBtn;
 
-     @FindBy(xpath = "//button[text()='Give Feedback']")
-     WebElement feedbackBtn;
-
+    @FindBy(xpath = "//button[text()='Give Feedback']")
+    WebElement feedbackBtn;
 
     @Override
     public boolean verifyUserOnProductDetailsPage() {
-        return addToBagBtn.isDisplayed()|| buyNowBtn.isDisplayed();
+        return addToBagBtn.isDisplayed() || buyNowBtn.isDisplayed();
     }
 
     @Override
@@ -43,17 +42,10 @@ public class WebProductDetailsPage extends WebBasePage implements ProductDetails
         pause(5);
         click(cartBtn);
     }
-    public void clickOnFeedbackButton(){
+
+    @Override
+    public void clickOnFeedbackButton() {
         click(feedbackBtn);
     }
 
-    @Override
-    public void userClickBuyNowButton() {
-        if(isDisplayedCheck(buyNowBtn)){
-            buyNowBtn.click();
-        }
-        else{
-            driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
-        }
-    }
 }

@@ -1,5 +1,5 @@
-@web
 Feature: Validate the expand Button
+  @web
   Scenario: verify expand is working
     Given user open application "MEN"
     Then verify user on home page

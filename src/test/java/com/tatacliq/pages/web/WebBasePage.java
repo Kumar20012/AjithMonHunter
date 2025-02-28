@@ -6,13 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Set;
 
-public class WebBasePage {
+public abstract class WebBasePage {
     WebDriver driver;
     WebDriverWait wait;
     JavascriptExecutor executor;
@@ -26,16 +25,17 @@ public class WebBasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public  void switchToWindow(){
+    public void switchToWindow() {
         String currentWindow = driver.getWindowHandle();
         Set<String> allWindow = driver.getWindowHandles();
-        for(String window : allWindow){
-            if(!window.equals(currentWindow)){
+        for (String window : allWindow) {
+            if (!window.equals(currentWindow)) {
                 driver.switchTo().window(window);
             }
         }
 
     }
+
     public boolean isDisplayedCheck(WebElement element) {
         try {
             setImplicitWait(2);
@@ -59,10 +59,6 @@ public class WebBasePage {
         }
     }
 
-    protected void waitTillVisible(WebElement ele) {
-        wait.until(ExpectedConditions.visibilityOf(ele));
-    }
-
     public static void switchToSecondWindow(WebDriver driver) {
         String currentWindowHandle = driver.getWindowHandle();
         Set<String> allWindowHandles = driver.getWindowHandles();
@@ -74,16 +70,12 @@ public class WebBasePage {
         }
     }
 
-    public static void switchToOriginalWindow(WebDriver driver) {
-        String currentWindowHandle = driver.getWindowHandle();
-        driver.switchTo().window(currentWindowHandle);
-    }
 
     protected void moveToElement(WebElement ele) {
         actions.moveToElement(ele).build().perform();
     }
 
-    public void pause(int sec){
+    public void pause(int sec) {
         try {
             Thread.sleep(Duration.ofSeconds(sec).toMillis());
         } catch (InterruptedException e) {

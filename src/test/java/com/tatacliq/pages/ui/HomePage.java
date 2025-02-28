@@ -23,7 +23,7 @@ public interface HomePage {
 
     void userClickAddressSubmit();
 
-     void clickOnCustomerCareBtn();
+    void clickOnCustomerCareBtn();
 
 
 }

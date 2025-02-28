@@ -15,6 +15,7 @@ public class CouponPageSteps extends BaseSteps {
     public void verify_the_user_should_be_on_the_coupon_page() {
         Assert.assertTrue(couponPage.verifyUserOnCouponPage());
     }
+
     @When("a valid coupon is available, the user applies it")
     public void a_valid_coupon_is_available_the_user_applies_it() {
         couponPage.userApplyCoupon();

@@ -18,27 +18,29 @@ public class AndroidLoginPage extends AndroidBasePage implements LoginPage {
     @FindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
     WebElement allowButton;
 
-    @FindBy(id= "com.tul.tatacliq:id/cancel_button")
+    @FindBy(id = "com.tul.tatacliq:id/cancel_button")
     WebElement fingerprintSkip;
 
-
-    public boolean verifyUserOnLoginPage(){
+    @Override
+    public boolean verifyUserOnLoginPage() {
         return numberBar.isDisplayed();
     }
 
-
-    public void userEnterMobileNumber(String number){
+    @Override
+    public void userEnterMobileNumber(String number) {
         numberBar.click();
-        if(!continueButton.isEnabled()){
+        if (!continueButton.isEnabled()) {
             numberBar.sendKeys(number);
         }
     }
 
-    public boolean checkContinueButton(){
+    @Override
+    public boolean checkContinueButton() {
         return continueButton.isEnabled();
     }
 
-    public void userClickContinueButton(){
+    @Override
+    public void userClickContinueButton() {
         continueButton.click();
         allowButton.click();
         wait.until(ExpectedConditions.visibilityOf(fingerprintSkip));

@@ -6,22 +6,21 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidProductDetailsPage extends AndroidBasePage implements ProductDetailsPage {
 
-
     @FindBy(id = "com.tul.tatacliq:id/textViewAddToCart")
     WebElement addToBagButton;
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"My Bag\" and @resource-id=\"com.tul.tatacliq:id/view\"]")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='My Bag' and @resource-id='com.tul.tatacliq:id/view']")
     WebElement myBagIcon;
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/cartBadge\"]")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.tul.tatacliq:id/cartBadge']")
     WebElement bagValue;
 
-    @FindBy(id="com.tul.tatacliq:id/appCompatTextView2")
+    @FindBy(id = "com.tul.tatacliq:id/appCompatTextView2")
     WebElement feedbackBtn;
 
     @Override
     public boolean verifyUserOnProductDetailsPage() {
-        return  addToBagButton.isDisplayed();
+        return addToBagButton.isDisplayed();
     }
 
     @Override
@@ -39,15 +38,12 @@ public class AndroidProductDetailsPage extends AndroidBasePage implements Produc
         myBagIcon.click();
     }
 
-    public void clickOnFeedbackButton(){
-        while (!isDisplayedCheck(feedbackBtn)){
+    @Override
+    public void clickOnFeedbackButton() {
+        while (!isDisplayedCheck(feedbackBtn)) {
             scrollPage();
         }
         feedbackBtn.click();
     }
 
-    @Override
-    public void userClickBuyNowButton() {
-
-    }
 }

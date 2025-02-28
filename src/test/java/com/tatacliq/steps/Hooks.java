@@ -10,23 +10,23 @@ import io.restassured.RestAssured;
 public class Hooks {
 
     @Before("@web or @android")
-    public void setUp(){
+    public void setUp() {
         ConfigurationManager.initializeConfigReader();
         DriverManager.createDriver();
     }
 
     @Before("@api")
-    public void setUpAPI(){
+    public void setUpAPI() {
         ConfigurationManager.initializeConfigReader();
-        RestAssured.baseURI="https://petstore.swagger.io/";
+        RestAssured.baseURI = "https://petstore.swagger.io/";
         RestAssured.useRelaxedHTTPSValidation();
     }
 
     @After
-    public void cleanUp(Scenario scenario){
-        if(scenario.isFailed()) {
+    public void cleanUp(Scenario scenario) {
+        if (scenario.isFailed()) {
             scenario.attach(ConfigurationManager.attachScreenShot(DriverManager.getDriver()), "image/png", "screenshot");
         }
-        //DriverManager.getDriver().quit();
+        DriverManager.getDriver().quit();
     }
 }

@@ -63,6 +63,7 @@ public class HomePageSteps extends BaseSteps{
     public void beforeAddingTheDetailsDisplayTheExistingAddressDetails() {
         homePage.displayAddressDetails();
     }
+
     @And("user click on customer care button")
     public void user_click_on_customer_care_button() {
         homePage.clickOnCustomerCareBtn();

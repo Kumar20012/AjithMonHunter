@@ -14,17 +14,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Collections;
 
-public class AndroidBasePage {
+public abstract class AndroidBasePage {
 
     static AndroidDriver driver;
     WebDriverWait wait;
-    AndroidBasePage(){
+
+    AndroidBasePage() {
         driver = (AndroidDriver) DriverManager.getDriver();
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void pause(int sec){
+    public void pause(int sec) {
         try {
             Thread.sleep(Duration.ofSeconds(sec).toMillis());
         } catch (InterruptedException e) {
@@ -60,6 +61,7 @@ public class AndroidBasePage {
 
         driver.perform(Collections.singletonList(sequence));
     }
+
     public void scroll(WebElement element) {
         int x = element.getLocation().getX();
         int y = element.getLocation().getY();

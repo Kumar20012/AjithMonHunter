@@ -7,14 +7,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidCheckOutPage extends AndroidBasePage implements CheckOutPage {
 
-
     @FindBy(id = "com.tul.tatacliq:id/toolbar_title")
     WebElement checkoutText;
 
-
     @FindBy(id = "com.tul.tatacliq:id/button_my_bag_checkout")
     WebElement payNowButton;
-
 
     @Override
     public boolean verifyUserOnCheckOutPage() {

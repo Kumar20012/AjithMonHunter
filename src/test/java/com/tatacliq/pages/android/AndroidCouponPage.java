@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidCouponPage extends AndroidBasePage implements CouponPage {
 
-    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.tul.tatacliq:id/txtApply\"]")
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.tul.tatacliq:id/txtApply']")
     WebElement applyButton;
 
     @FindBy(xpath = "//android.widget.ImageButton")
@@ -19,10 +19,9 @@ public class AndroidCouponPage extends AndroidBasePage implements CouponPage {
 
     @Override
     public void userApplyCoupon() {
-        if(isDisplayedCheck(applyButton)){
+        if (isDisplayedCheck(applyButton)) {
             applyButton.click();
-        }
-        else{
+        } else {
             System.out.println("No Coupons Available");
             backButton.click();
         }

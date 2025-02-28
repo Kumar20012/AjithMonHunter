@@ -17,28 +17,28 @@ public class BaseSteps {
     WishListPage wishListPage;
     CustomerPage customerPage;
 
-    public BaseSteps(){
+    public BaseSteps() {
         if (ConfigurationManager.getConfigValues("application.type").equals("web")) {
             checkOutPage = new WebCheckOutPage();
             couponPage = new WebCouponPage();
             homePage = new WebHomePage();
-            loginPage =new WebLoginPage();
+            loginPage = new WebLoginPage();
             myBagPage = new WebMyBagPage();
             productPage = new WebProductPage();
-            productDetailsPage= new WebProductDetailsPage();
-            feedbackPage=new WebFeedbackPage();
+            productDetailsPage = new WebProductDetailsPage();
+            feedbackPage = new WebFeedbackPage();
             customerPage = new WebCustomerPage();
         } else {
             checkOutPage = new AndroidCheckOutPage();
             couponPage = new AndroidCouponPage();
             homePage = new AndroidHomePage();
-            loginPage =new AndroidLoginPage();
+            loginPage = new AndroidLoginPage();
             myBagPage = new AndroidMyBagPage();
             productPage = new AndroidProductPage();
-            productDetailsPage= new AndroidProductDetailsPage();
-            feedbackPage=new AndroidFeedbackPage();
-            wishListPage=new AndroidWishListPage();
-            customerPage=new AndroidCustomerPage();
+            productDetailsPage = new AndroidProductDetailsPage();
+            feedbackPage = new AndroidFeedbackPage();
+            wishListPage = new AndroidWishListPage();
+            customerPage = new AndroidCustomerPage();
         }
     }
 
