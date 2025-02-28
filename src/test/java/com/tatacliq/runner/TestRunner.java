@@ -6,9 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/application/ValidatePriceDetails.feature",
+        features = "src/test/resources/features/application/ProductSortBy.feature",
         glue = "com.tatacliq.steps",
         plugin = {"pretty","html:reports/cucumber.html"},
+        tags = "@web",
         monochrome = true
 
 )

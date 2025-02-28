@@ -1,3 +1,4 @@
+@web
 Feature: Validate sort by functionality on products
 
   Background:
