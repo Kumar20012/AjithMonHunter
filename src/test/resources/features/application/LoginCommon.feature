@@ -6,7 +6,7 @@ Feature: Validate the login functionality
     When  user click login button
     Then  verify user on login page
 
-  @web @android
+ @android
   Scenario: Verify user can login successfully
     When user enter phone number "mobile.number"
     Then verify the number is valid
