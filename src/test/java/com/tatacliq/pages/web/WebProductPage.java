@@ -118,7 +118,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         for (int i = 0; i < listOfPrice.size(); i++) {
             String element = listOfPrice.get(i).getText().replaceAll("[^0-9]", "");
             String element1 = listOfPrice.get(i + 1).getText().replaceAll("[^0-9]", "");
-            return Integer.parseInt(element) > Integer.parseInt(element1);
+            return Integer.parseInt(element) >= Integer.parseInt(element1);
         }
         return false;
     }
@@ -128,7 +128,7 @@ public class WebProductPage extends WebBasePage implements ProductPage {
         for (int i = 0; i < listOfPrice.size(); i++) {
             String element = listOfPrice.get(i).getText().replaceAll("[^0-9]", "");
             String element1 = listOfPrice.get(i + 1).getText().replaceAll("[^0-9]", "");
-            return Integer.parseInt(element) < Integer.parseInt(element1);
+            return Integer.parseInt(element) <= Integer.parseInt(element1);
         }
         return false;
     }
