@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+<configuration>
+    <!-- Dark theme for better readability -->
+    <theme>dark</theme>
+
+    <!-- UTF-8 Encoding for special characters -->
+    <encoding>UTF-8</encoding>
+
+    <!-- Secure protocol -->
+    <protocol>https</protocol>
+
+    <!-- Custom Report Title -->
+    <documentTitle>Advanced Extent Report</documentTitle>
+
+    <!-- Report Name shown in the top navigation -->
+    <reportName>Automation Test Execution Report</reportName>
+
+    <!-- Position of test chart -->
+    <testViewChartLocation>top</testViewChartLocation>
+
+    <!-- Add a custom time format -->
+    <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+
+    <!-- Add some JavaScript to enhance UI -->
+    <scripts>
+        <![CDATA[
+                $(document).ready(function() {
+                    $('nav').css('background-color', '#1f1f1f'); /* Dark Navbar */
+                    $('.brand-logo').css('color', '#ffcc00'); /* Yellow Brand Logo */
+                });
+            ]]>
+    </scripts>
+
+    <!-- Custom styles for better UI -->
+    <styles>
+        <![CDATA[
+                body {
+                    font-family: 'Arial', sans-serif;
+                }
+                .report-name {
+                    color: #ffcc00 !important; /* Change Report Name to Yellow */
+                }
+                .category {
+                    background-color: #1e88e5 !important; /* Blue Tag for Categories */
+                    color: white !important;
+                }
+                .badge-default {
+                    background-color: #26a69a !important; /* Green Badges */
+                    color: white !important;
+                }
+                .badge-fail {
+                    background-color: #d32f2f !important; /* Red for Failed Tests */
+                }
+                .badge-pass {
+                    background-color: #388e3c !important; /* Green for Passed Tests */
+                }
+                .badge-skip {
+                    background-color: #ff9800 !important; /* Orange for Skipped Tests */
+                }
+                .step-fail {
+                    background-color: rgba(211, 47, 47, 0.2) !important; /* Light Red for Failed Steps */
+                }
+                .step-pass {
+                    background-color: rgba(56, 142, 60, 0.2) !important; /* Light Green for Passed Steps */
+                }
+            ]]>
+    </styles>
+</configuration>
+</extentreports>

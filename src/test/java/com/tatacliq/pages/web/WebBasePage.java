@@ -33,7 +33,6 @@ public abstract class WebBasePage {
                 driver.switchTo().window(window);
             }
         }
-
     }
 
     public boolean isDisplayedCheck(WebElement element) {

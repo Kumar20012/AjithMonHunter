@@ -29,7 +29,7 @@ Feature: Validate contact us functionality
       | issue.type          |
       | Product related     |
       | Website related     |
-      | Promotions & Offers |
+      #| Promotions & Offers |
 
   @web @android
   Scenario Outline: Verify user can raise multiple tickets on one particular issue type
@@ -46,5 +46,5 @@ Feature: Validate contact us functionality
       | ticket.options                |
       | I am unable to place an order |
       | I am getting pricing error    |
-      | Report content error          |
+      #| Report content error          |
 

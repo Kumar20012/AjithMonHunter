@@ -1,22 +1,17 @@
 package com.tatacliq.steps;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.tatacliq.utils.ConfigurationManager;
 import com.tatacliq.utils.DriverManager;
-import com.tatacliq.utils.ExtentReportManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.restassured.RestAssured;
-import org.openqa.selenium.WebDriver;
 
 public class Hooks {
 
     @Before("@web or @android")
     public void setUp(Scenario scenario){
         ConfigurationManager.initializeConfigReader();
-        ExtentReportManager.initReporter();
-        ExtentReportManager.createTest(scenario.getName());
         DriverManager.createDriver();
     }
 
@@ -30,17 +25,9 @@ public class Hooks {
     @After
     public void cleanUp(Scenario scenario){
             if (scenario.isFailed()) {
-                ExtentReportManager.attachScreenshot();
-                ExtentReportManager.getTest().fail("Test Failed : "+scenario.getName());
-            } else {
-                ExtentReportManager.getTest().pass("Test Passed : " + scenario.getName());
+                scenario.attach(ConfigurationManager.attachScreenShot(DriverManager.getDriver()),"image/png","screenshot");
+                System.out.println("Test Failed : "+scenario.getName());
             }
-            try {
-                Thread.sleep(20000);
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
-               ExtentReportManager.flush();
-            //DriverManager.getDriver().quit();
+            DriverManager.getDriver().quit();
     }
 }

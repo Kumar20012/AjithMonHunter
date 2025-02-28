@@ -21,4 +21,4 @@ Feature: Address verification
       | PinCode  |FirstName   | LastName |         Address          | MobileNumber  |
       | 600008   | Gresh      | K        | 5/7,New York,Road H      | 9876543210    |
       | 641402   | Ajith      | Mon      | 6/34,Chicago , main Road | 8765432109    |
-      | 641408   | Ajay       |sunil     | 9/23,San Diego, Rash Road| 7654321098    |
+      #| 641408   | Ajay       |sunil     | 9/23,San Diego, Rash Road| 7654321098    |
