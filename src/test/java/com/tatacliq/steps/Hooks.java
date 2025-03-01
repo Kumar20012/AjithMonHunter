@@ -24,10 +24,12 @@ public class Hooks {
 
     @After
     public void cleanUp(Scenario scenario){
+        if(ConfigurationManager.getConfigValues("application.type").equals("@web")|| ConfigurationManager.getConfigValues("application.type").equals("@android")){
             if (scenario.isFailed()) {
                 scenario.attach(ConfigurationManager.attachScreenShot(DriverManager.getDriver()),"image/png","screenshot");
                 System.out.println("Test Failed : "+scenario.getName());
             }
-            DriverManager.getDriver().quit();
+        }
+        DriverManager.getDriver().quit();
     }
 }

@@ -8,12 +8,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/application/LoginCommon.feature",
         glue = "com.tatacliq.steps",
-        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json,",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         tags = "@android",
         monochrome = true
-
 )
 public class TestRunnerAndroid {
+
 
 }
